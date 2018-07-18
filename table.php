@@ -90,9 +90,9 @@
                                 <fieldset>
                                     <form class="form-horizontal form-label-left" method="post" action="" enctype="multipart/form-data">
                                         <div class="item form-group">
-                                        <label class="control-label col-md-4" for="no_pesan">No Barang <span class="required"></span></label>
+                                        <label class="control-label col-md-4" for="id_barang">No Barang <span class="required"></span></label>
                                         <div class="col-md-4 col-sm-4 col-xs-12">
-                                        <input id="no_pesan" value="" class="form-control col-md-7 col-xs-12" data-validate-length-range="4" data-validate-number="4" name="no_pesan" placeholder="" required="required" type="text">
+                                        <input id="id_barang" value="" class="form-control col-md-7 col-xs-12" data-validate-length-range="4" data-validate-number="4" name="id_barang" placeholder="" required="required" type="text">
                                         </div>
                                         </div>
                                         <div class="ln_solid"></div>
@@ -128,25 +128,46 @@
                                         <th>Aksi</th>
                                     </thead>
                                     <tbody>
+
+                                        <?php
+                                            error_reporting(0);
+                                            include('koneksi.php');
+                                            $id=$_POST['id_barang'];
+                                            $result = "SELECT * FROM tb_barang WHERE id_barang='$id'" or die(mysqli_error());
+                                            $print = mysqli_query($con, $result);
+                                            while($row = mysqli_fetch_array($print)){
+                                                $id_barang=$row['id_barang'];
+                                                $nama_barang = $row['nama_barang'];
+                                                $lebar = $row['lebar'];
+                                                $panjang = $row['panjang'];
+                                                $tinggi = $row['tinggi'];
+                                                $berat = $row['berat'];
+                                                $harga = $row['harga'];
+                                                $tujuan = $row['tujuan'];
+                                                $stock = $row['stock'];
+                                            }
+                                        ?>
+
                                         <tr>
-                                            <td>B123</td>
-                                            <td>Radiator</td>
-                                            <td>15</td>
-                                            <td>20</td>
-                                            <td>25</td>
-                                            <td>30</td>
-                                            <td>90000</td>
-                                            <td>Paster</td>
-                                        </tr>
-                                        <tr>
-                                            <td>B234</td>
-                                            <td>Kaca</td>
-                                            <td>15</td>
-                                            <td>20</td>
-                                            <td>25</td>
-                                            <td>30</td>
-                                            <td>90000</td>
-                                            <td>Cimahi</td>
+                                            <td><div align="center"><?php echo $id_barang; ?></div></td>
+                                            <td><div align="center"><?php echo $nama_barang; ?></div></td>
+                                            <td><div align="center"><?php echo $lebar; ?></div></td>
+                                            <td><div align="center"><?php echo $panjang; ?></div></td>
+                                            <td><div align="center"><?php echo $tinggi; ?></div></td>
+                                            <td><div align="center"><?php echo $berat; ?></div></td>
+                                            <td><div align="center"><?php echo $harga; ?></div></td>
+                                            <td><div align="center"><?php echo $tujuan; ?></div></td>
+                                            <?php
+                                            if($stock=="Ada"){
+                                            ?>
+                                            <td><div align="center"><a href="qrcode.php?id=<?php echo $id_barang; ?>&namabarang=<?php echo $nama_barang; ?>&lebar=<?php echo $lebar; ?>&panjang=<?php echo $panjang; ?>&tinggi=<?php echo $tinggi; ?>&berat=<?php echo $berat; ?>&harga=<?php echo $harga; ?>&tujuan=<?php echo $tujuan; ?>">Cetak QR Code</a></div></td>
+                                            <?php
+                                            }
+                                            else if($status=="Kosong") {
+                                            ?>
+                                            <?php
+                                              }
+                                            ?>
                                         </tr>
                                     </tbody>
                                 </table>

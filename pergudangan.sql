@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Waktu pembuatan: 15 Jul 2018 pada 14.30
+-- Waktu pembuatan: 18 Jul 2018 pada 23.28
 -- Versi server: 10.1.32-MariaDB
 -- Versi PHP: 7.2.5
 
@@ -45,6 +45,31 @@ INSERT INTO `tb_admin` (`id_admin`, `username`, `password`, `level`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `tb_barang`
+--
+
+CREATE TABLE `tb_barang` (
+  `id_barang` int(10) NOT NULL,
+  `nama_barang` varchar(50) NOT NULL,
+  `lebar` int(10) NOT NULL,
+  `panjang` int(10) NOT NULL,
+  `tinggi` int(10) NOT NULL,
+  `berat` int(10) NOT NULL,
+  `harga` int(30) NOT NULL,
+  `tujuan` varchar(100) NOT NULL,
+  `stock` enum('Ada','Kosong') NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `tb_barang`
+--
+
+INSERT INTO `tb_barang` (`id_barang`, `nama_barang`, `lebar`, `panjang`, `tinggi`, `berat`, `harga`, `tujuan`, `stock`) VALUES
+(1, 'Radiator', 2, 2, 2, 2, 90000, 'Cimahi', 'Ada');
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `tb_regis`
 --
 
@@ -75,6 +100,12 @@ ALTER TABLE `tb_admin`
   ADD PRIMARY KEY (`id_admin`);
 
 --
+-- Indeks untuk tabel `tb_barang`
+--
+ALTER TABLE `tb_barang`
+  ADD PRIMARY KEY (`id_barang`);
+
+--
 -- Indeks untuk tabel `tb_regis`
 --
 ALTER TABLE `tb_regis`
@@ -89,6 +120,12 @@ ALTER TABLE `tb_regis`
 --
 ALTER TABLE `tb_admin`
   MODIFY `id_admin` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT untuk tabel `tb_barang`
+--
+ALTER TABLE `tb_barang`
+  MODIFY `id_barang` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_regis`

@@ -106,52 +106,52 @@ if (@$_SESSION['admin'] || @$_SESSION['user']) {
                             <fieldset>
                                     <form class="form-horizontal form-label-left" method="post" action="" enctype="multipart/form-data">
                                         <div class="item form-group">
-                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nama_user">Nama Barang <span class="required"></span>
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nama_barang">Nama Barang <span class="required"></span>
                                             </label>
                                             <div class="col-md-4 col-sm-4 col-xs-12">
-                                                <input type="text" id="nama_user" name="nama_user" required="required" data-validate-minmax="10,100" class="form-control col-md-7 col-xs-12" placeholder="Masukan Nama Lengkap">
+                                                <input type="text" id="nama_barang" name="nama_barang" required="required" data-validate-minmax="10,100" class="form-control col-md-7 col-xs-12" placeholder="Masukan Nama Lengkap">
                                             </div>
                                         </div>
                                         <div class="item form-group">
-                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="alamat">Lebar <span class="required"></span>
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="lebar">Lebar <span class="required"></span>
                                             </label>
                                             <div class="col-md-4 col-sm-4 col-xs-12">
-                                                <input id="alamat" type="number" name="alamat"  data-validate-length-range="5,20" class="optional form-control col-md-7 col-xs-12" placeholder="Masukan Alamat Lengkap">
+                                                <input id="lebar" type="number" name="lebar"  data-validate-length-range="5,20" class="optional form-control col-md-7 col-xs-12" placeholder="Masukan Alamat Lengkap">
                                             </div>
                                         </div>
                                         <div class="item form-group">
-                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="no_hp"> Panjang<span class="required"></span>
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="panjang"> Panjang<span class="required"></span>
                                             </label>
                                             <div class="col-md-4 col-sm-4 col-xs-12">
-                                                <input id="no_hp" type="number" name="no_hp" data-validate-length-range="10,12" class="optional form-control col-md-7 col-xs-12" maxlength="12" placeholder="Masukan No Hp atau Tlp">
+                                                <input id="panjang" type="number" name="panjang" data-validate-length-range="10,12" class="optional form-control col-md-7 col-xs-12" maxlength="12" placeholder="Masukan No Hp atau Tlp">
                                             </div>
                                         </div>
                                         <div class="item form-group">
-                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">Tinggi <span class="required"></span>
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="tinggi">Tinggi <span class="required"></span>
                                             </label>
                                             <div class="col-md-4 col-sm-4 col-xs-12">
-                                                <input id="email" type="number" name="email"  data-validate-length-range="5,20" class="optional form-control col-md-7 col-xs-12" placeholder="Masukan Email">
+                                                <input id="tinggi" type="number" name="tinggi"  data-validate-length-range="5,20" class="optional form-control col-md-7 col-xs-12" placeholder="Masukan Email">
                                             </div>
                                         </div>
                                         <div class="item form-group">
-                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="username">Berat <span class="required"></span>
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="berat">Berat <span class="required"></span>
                                             </label>
                                             <div class="col-md-4 col-sm-4 col-xs-12">
-                                                <input id="username" class="form-control col-md-7 col-xs-12" data-validate-length-range="4" data-validate-number="4" name="username" placeholder="Masukan Username" required="required" type="number">
+                                                <input id="berat" class="form-control col-md-7 col-xs-12" data-validate-length-range="4" data-validate-number="4" name="berat" placeholder="Masukan Username" required="required" type="number">
                                             </div>
                                         </div>
                                        <div class="item form-group">
-                                            <label for="password" class="control-label col-md-3">Harga</label>
+                                            <label for="harga" class="control-label col-md-3">Harga</label>
                                             <div class="col-md-4 col-sm-4 col-xs-12">
-                                                <input id="password" type="number" name="password"  data-validate-length="0" class="form-control col-md-7 col-xs-12" placeholder="Masukan Password" required="required">
+                                                <input id="harga" type="number" name="harga"  data-validate-length="0" class="form-control col-md-7 col-xs-12" placeholder="Masukan Password" required="required">
                                             </div>
                                         </div>
                                         <div class="item form-group">
-                                        <label for="opsi" class="control-label col-md-3">Tujuan</label>
+                                        <label for="tujuan" class="control-label col-md-3">Tujuan</label>
                                         <div class="col-md-4 col-sm-4 col-xs-12">
-                                        <select class="form-control" name='level' requered="requered">
-                                                    <option>admin</option>
-                                                    <option>user</option>
+                                        <select class="form-control" name='tujuan' requered="requered">
+                                                    <option>Paster</option>
+                                                    <option>Cimahi</option>
                                         </select>
                                         </div>
                                         </div>
@@ -167,6 +167,37 @@ if (@$_SESSION['admin'] || @$_SESSION['user']) {
                         </div>
                     </div>
                 </div>
+
+                <?php
+                        $id_barang = @$_POST['id_barang'];
+                        $nama_barang = @$_POST['nama_barang'];
+                        $lebar = @$_POST['lebar'];
+                        $panjang = @$_POST['panjang'];
+                        $tinggi = @$_POST['tinggi'];
+                        $berat = @$_POST['berat'];
+                        $harga = @$_POST['harga'];
+                        $tujuan = @$_POST['tujuan'];
+                        $tambah = @$_POST['tambah'];
+
+                        if ($tambah) {
+                            if ($nama_barang == "" || $lebar == "" || $panjang == "" || $tinggi == "" || $berat == "" || $harga == "" || $tujuan == "") {
+                                    ?> <script type="text/javascript">alert("Inputan tidak boleh kosong !!");</script> <?php
+                            } else {
+                                $sql_tambah = "insert into tb_barang values('', '$nama_barang', '$lebar', '$panjang', '$tinggi', '$berat', '$harga', '$tujuan')" or die (mysqli_error());
+                                $tmb_barang = mysqli_query($con, $sql_tambah);
+                            }
+                        }
+                        
+                        // $id_user = @$_GET['id'];
+                        // $aksi = @$_GET['aksi'];
+                        // if(($aksi<>"") and ($id_user<>"")){
+                        //      $sql_delete = "delete from tb_registrasi where id_user='$id_user'" or die (mysqli_error());
+                        //      $delete = mysqli_query($con, $sql_delete);
+                        //      echo "<script type=text/javascript>
+                        //         window.location.href='http://localhost/primajasa/admin/datauser.php';
+                        //         </script>" ;
+                        // }
+                        ?>
 
         <footer class="footer">
             <div class="container-fluid">

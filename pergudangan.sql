@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Waktu pembuatan: 26 Jun 2018 pada 05.20
+-- Waktu pembuatan: 15 Jul 2018 pada 14.30
 -- Versi server: 10.1.32-MariaDB
 -- Versi PHP: 7.2.5
 
@@ -61,7 +61,8 @@ CREATE TABLE `tb_regis` (
 --
 
 INSERT INTO `tb_regis` (`id_user`, `nama`, `email`, `password`, `foto`) VALUES
-(1, 'budi', 'budi', 'budi', 'http://192.168.1.101/pergudangan/image/default.png');
+(1, 'budi', 'budi', 'budi', 'http://192.168.1.101/pergudangan/image/default.png'),
+(2, 'Rifa', 'rifa', 'rifa', 'http://192.168.1.101/pergudangan/image/default.png');
 
 --
 -- Indexes for dumped tables
@@ -93,7 +94,7 @@ ALTER TABLE `tb_admin`
 -- AUTO_INCREMENT untuk tabel `tb_regis`
 --
 ALTER TABLE `tb_regis`
-  MODIFY `id_user` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_user` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

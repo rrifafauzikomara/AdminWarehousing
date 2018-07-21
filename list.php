@@ -152,7 +152,7 @@ include "koneksi.php";
                                             <td><div align="center"><?php echo $data['harga']; ?></div></td>
                                             <td><div align="center"><?php echo $data['tujuan']; ?></div></td>
                                             <td><div align="center"><?php echo $data['stock']; ?></div></td>
-                                            <td align="center"><a  href="editjadwal.php?id=<?php echo $data['id_jadwal']; ?>" class="btn btn-xs btn-default" title="Edit" >
+                                            <td align="center"><a  href="editlist.php?id=<?php echo $data['id_barang']; ?>" class="btn btn-xs btn-default" title="Edit" >
                                         <i class="fa fa-edit fa-fw"></i>
                                     </a>
                                     <a onclick="return confirm('Anda yakin akan menghapus');" href="list.php?id_barang=<?php echo $data['id_barang']; ?>&aksi=hapus" class="btn btn-xs btn-default" title="Hapus">

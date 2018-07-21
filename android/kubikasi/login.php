@@ -1,6 +1,6 @@
 <?php
 
-	include_once "../koneksi.php";
+	include_once "../../koneksi.php";
 
 	class usr{}
 	
@@ -14,14 +14,15 @@
 		die(json_encode($response));
 	}
 	
-	$query = mysqli_query($con, "SELECT * FROM tb_regis WHERE email='$email' AND password='$password'");
+	$query = mysqli_query($con, "SELECT * FROM tb_kubikasi WHERE email='$email' AND password='$password'");
 	
 	$row = mysqli_fetch_array($query);
 	
 	if (!empty($row)){
 		$response = new usr();
 		$response->success = 1;
-		$response->id_user = $row['id_user'];
+		$response->id_kubikasi = $row['id_kubikasi'];
+		$response->nama = $row['nama'];
 		$response->email = $row['email'];
 		$response->message = "Selamat datang ".$row['nama'];
 		die(json_encode($response));

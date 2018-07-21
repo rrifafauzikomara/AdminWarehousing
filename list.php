@@ -1,3 +1,6 @@
+<?php
+include "koneksi.php";
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -52,13 +55,13 @@
                         <p>Barang</p>
                     </a>
                 </li>
-                <li class="active">
+                <li>
                     <a href="table.php">
                         <i class="pe-7s-search"></i>
                         <p>Search Barang</p>
                     </a>
                 </li>
-                <li>
+                <li class="active">
                     <a href="list.php">
                         <i class="pe-7s-note2"></i>
                         <p>List Barang</p>
@@ -90,35 +93,32 @@
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-md-12">
-                        <div class="card">
-                            <div class="header">
-                                <fieldset>
-                                    <form class="form-horizontal form-label-left" method="post" action="" enctype="multipart/form-data">
-                                        <div class="item form-group">
-                                        <label class="control-label col-md-4" for="id_barang">No Barang <span class="required"></span></label>
-                                        <div class="col-md-4 col-sm-4 col-xs-12">
-                                        <input id="id_barang" value="" class="form-control col-md-7 col-xs-12" data-validate-length-range="4" data-validate-number="4" name="id_barang" placeholder="" required="required" type="text">
-                                        </div>
-                                        </div>
-                                        <div class="ln_solid"></div>
-                                        <div class="form-group">
-                                        <div class="col-md-6 col-md-offset-5">
-                                            <input type="submit" name="cari" value="Cari" class="btn btn-primary">
-                                            <input type="reset" value="Reset" class="btn btn-primary">
-                                        </div>
-                                        </div>
-                                </fieldset>
-                            </div>
-                        </div>
-                    </div>
 
-
+                	<?php
+                        $id_barang = @$_POST['id_barang'];
+                        $nama_barang = @$_POST['nama_barang'];
+                        $lebar = @$_POST['lebar'];
+                        $panjang = @$_POST['panjang'];
+                        $tinggi = @$_POST['tinggi'];
+                        $berat = @$_POST['berat'];
+                        $harga = @$_POST['harga'];
+                        $tujuan = @$_POST['tujuan'];
+                        
+                        $id_barang = @$_GET['id_barang'];
+                        $aksi = @$_GET['aksi'];
+                        if(($aksi<>"") and ($id_barang<>"")){
+                             $sql_delete = "delete from tb_barang where id_barang='$id_barang'" or die (mysqli_error());
+                             $delete = mysqli_query($con, $sql_delete);
+                             echo "<script type=text/javascript>
+                                window.location.href='http://localhost/pergudangan/list.php';
+                                </script>" ;
+                        }
+                        ?>
 
                     <div class="col-md-12">
                         <div class="card">
                             <div class="header">
-                                <h4 class="title">Data Barang</h4>
+                                <h4 class="title">List Barang</h4>
                             </div>
                             <div class="content table-responsive table-full-width">
                                 <table class="table table-hover table-striped">
@@ -131,50 +131,38 @@
                                         <th><div align="center">Berat</div></th>
                                         <th><div align="center">Harga</div></th>
                                         <th><div align="center">Tujuan</div></th>
+                                        <th><div align="center">Stock</div></th>
                                         <th><div align="center">Aksi</div></th>
                                     </thead>
                                     <tbody>
 
                                         <?php
-                                            error_reporting(0);
-                                            include('koneksi.php');
-                                            $id=$_POST['id_barang'];
-                                            $result = "SELECT * FROM tb_barang WHERE id_barang='$id'" or die(mysqli_error());
-                                            $print = mysqli_query($con, $result);
-                                            while($row = mysqli_fetch_array($print)){
-                                                $id_barang=$row['id_barang'];
-                                                $nama_barang = $row['nama_barang'];
-                                                $lebar = $row['lebar'];
-                                                $panjang = $row['panjang'];
-                                                $tinggi = $row['tinggi'];
-                                                $berat = $row['berat'];
-                                                $harga = $row['harga'];
-                                                $tujuan = $row['tujuan'];
-                                                $stock = $row['stock'];
-                                            }
-                                        ?>
+			                            $sql = "select * from tb_barang" or die (mysql_error());
+			                            $barang = mysqli_query($con, $sql);
+			                            while($data = mysqli_fetch_array($barang)) {        
+			                            ?>
 
                                         <tr>
-                                            <td><div align="center"><?php echo $id_barang; ?></div></td>
-                                            <td><div align="center"><?php echo $nama_barang; ?></div></td>
-                                            <td><div align="center"><?php echo $lebar; ?></div></td>
-                                            <td><div align="center"><?php echo $panjang; ?></div></td>
-                                            <td><div align="center"><?php echo $tinggi; ?></div></td>
-                                            <td><div align="center"><?php echo $berat; ?></div></td>
-                                            <td><div align="center"><?php echo $harga; ?></div></td>
-                                            <td><div align="center"><?php echo $tujuan; ?></div></td>
-                                            <?php
-                                            if($stock=="Ada"){
-                                            ?>
-                                            <td><div align="center"><a href="qrcode.php?id=<?php echo $id_barang; ?>&namabarang=<?php echo $nama_barang; ?>&lebar=<?php echo $lebar; ?>&panjang=<?php echo $panjang; ?>&tinggi=<?php echo $tinggi; ?>&berat=<?php echo $berat; ?>&harga=<?php echo $harga; ?>&tujuan=<?php echo $tujuan; ?>">Cetak QR Code</a></div></td>
-                                            <?php
-                                            }
-                                            else if($status=="Kosong") {
-                                            ?>
-                                            <?php
-                                              }
-                                            ?>
+                                            <td><div align="center"><?php echo $data['id_barang']; ?></div></td>
+                                            <td><div align="center"><?php echo $data['nama_barang']; ?></div></td>
+                                            <td><div align="center"><?php echo $data['lebar']; ?></div></td>
+                                            <td><div align="center"><?php echo $data['panjang']; ?></div></td>
+                                            <td><div align="center"><?php echo $data['tinggi']; ?></div></td>
+                                            <td><div align="center"><?php echo $data['berat']; ?></div></td>
+                                            <td><div align="center"><?php echo $data['harga']; ?></div></td>
+                                            <td><div align="center"><?php echo $data['tujuan']; ?></div></td>
+                                            <td><div align="center"><?php echo $data['stock']; ?></div></td>
+                                            <td align="center"><a  href="editjadwal.php?id=<?php echo $data['id_jadwal']; ?>" class="btn btn-xs btn-default" title="Edit" >
+                                        <i class="fa fa-edit fa-fw"></i>
+                                    </a>
+                                    <a onclick="return confirm('Anda yakin akan menghapus');" href="list.php?id_barang=<?php echo $data['id_barang']; ?>&aksi=hapus" class="btn btn-xs btn-default" title="Hapus">
+                                        <i class="fa fa-times fa-fw"></i>
+                                        </a>
+                                        </td>
                                         </tr>
+                                        <?php
+			                            }
+			                            ?>
                                     </tbody>
                                 </table>
 

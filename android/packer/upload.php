@@ -1,6 +1,6 @@
 <?php
 
-	include_once "../koneksi.php";
+	include_once "../../koneksi.php";
 	
 	class usr{}
 	
@@ -26,7 +26,7 @@
 		$path = "image/".$random.".png";
 		
 		// untuk menyimpan lokasi gambar yang telah di upload
-		$actualpath = "http://192.168.1.101/pergudangan/$path";
+		$actualpath = "http://192.168.100.58/pergudangan/android/packer/$path";
 		
 		$query = mysqli_query($con, " UPDATE tb_regis SET nama = '$nama', email = '$email', foto = '$actualpath' WHERE id_user = '$id_user'");
 	

@@ -1,6 +1,6 @@
 <?php
 
-	 include_once "../koneksi.php";
+	 include_once "../../koneksi.php";
 
 	 class usr{}
 
@@ -31,10 +31,10 @@
 	 	die(json_encode($response));
 	 } else {
 		 if (!empty($email) && $password == $confirm_password){
-		 	$num_rows = mysqli_num_rows(mysqli_query($con, "SELECT * FROM tb_regis WHERE email='".$email."'"));
+		 	$num_rows = mysqli_num_rows(mysqli_query($con, "SELECT * FROM tb_kubikasi WHERE email='".$email."'"));
 
 		 	if ($num_rows == 0){
-		 		$query = mysqli_query($con, "INSERT INTO tb_regis (id_user, nama, email, password, foto) VALUES(0, '".$nama."', '".$email."', '".$password."','http://192.168.1.101/pergudangan/image/default.png')");
+		 		$query = mysqli_query($con, "INSERT INTO tb_kubikasi (id_kubikasi, nama, email, password, foto) VALUES(0, '".$nama."', '".$email."', '".$password."','http://192.168.100.58/pergudangan/android/kubikasi/image/default.png')");
 
 		 		if ($query){
 		 			$response = new usr();

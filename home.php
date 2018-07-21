@@ -65,8 +65,14 @@ if (@$_SESSION['admin'] || @$_SESSION['user']) {
                 </li>
                 <li>
                     <a href="table.php">
+                        <i class="pe-7s-search"></i>
+                        <p>Search Barang</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="list.php">
                         <i class="pe-7s-note2"></i>
-                        <p>Table List</p>
+                        <p>List Barang</p>
                     </a>
                 </li>
             </ul>
@@ -178,25 +184,17 @@ if (@$_SESSION['admin'] || @$_SESSION['user']) {
                         $harga = @$_POST['harga'];
                         $tujuan = @$_POST['tujuan'];
                         $tambah = @$_POST['tambah'];
+                        $stock = @$_POST['stock'];
 
                         if ($tambah) {
                             if ($nama_barang == "" || $lebar == "" || $panjang == "" || $tinggi == "" || $berat == "" || $harga == "" || $tujuan == "") {
                                     ?> <script type="text/javascript">alert("Inputan tidak boleh kosong !!");</script> <?php
                             } else {
-                                $sql_tambah = "insert into tb_barang values('', '$nama_barang', '$lebar', '$panjang', '$tinggi', '$berat', '$harga', '$tujuan')" or die (mysqli_error());
+                                $sql_tambah = "insert into tb_barang values('', '$nama_barang', '$lebar', '$panjang', '$tinggi', '$berat', '$harga', '$tujuan', 'Ada')" or die (mysqli_error());
                                 $tmb_barang = mysqli_query($con, $sql_tambah);
                             }
                         }
                         
-                        // $id_user = @$_GET['id'];
-                        // $aksi = @$_GET['aksi'];
-                        // if(($aksi<>"") and ($id_user<>"")){
-                        //      $sql_delete = "delete from tb_registrasi where id_user='$id_user'" or die (mysqli_error());
-                        //      $delete = mysqli_query($con, $sql_delete);
-                        //      echo "<script type=text/javascript>
-                        //         window.location.href='http://localhost/primajasa/admin/datauser.php';
-                        //         </script>" ;
-                        // }
                         ?>
 
         <footer class="footer">

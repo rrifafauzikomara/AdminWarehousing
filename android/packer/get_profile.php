@@ -1,7 +1,7 @@
 <?php 
 	$id_user = $_GET['id_user'];
 	
-	require_once('../koneksi.php');
+	require_once('../../koneksi.php');
 	
 	$sql = "SELECT * FROM tb_regis WHERE id_user=$id_user";
 	

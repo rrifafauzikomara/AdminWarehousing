@@ -122,34 +122,34 @@ if (@$_SESSION['admin'] || @$_SESSION['user']) {
                                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="lebar">Lebar <span class="required"></span>
                                             </label>
                                             <div class="col-md-4 col-sm-4 col-xs-12">
-                                                <input id="lebar" type="number" name="lebar"  data-validate-length-range="5,20" class="optional form-control col-md-7 col-xs-12" placeholder="Masukan Alamat Lengkap">
+                                                <input id="lebar" min="1" type="number" name="lebar"  data-validate-length-range="5,20" class="optional form-control col-md-7 col-xs-12" placeholder="Masukan Alamat Lengkap">
                                             </div>
                                         </div>
                                         <div class="item form-group">
                                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="panjang"> Panjang<span class="required"></span>
                                             </label>
                                             <div class="col-md-4 col-sm-4 col-xs-12">
-                                                <input id="panjang" type="number" name="panjang" data-validate-length-range="10,12" class="optional form-control col-md-7 col-xs-12" maxlength="12" placeholder="Masukan No Hp atau Tlp">
+                                                <input id="panjang" min="1" type="number" name="panjang" data-validate-length-range="10,12" class="optional form-control col-md-7 col-xs-12" maxlength="12" placeholder="Masukan No Hp atau Tlp">
                                             </div>
                                         </div>
                                         <div class="item form-group">
                                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="tinggi">Tinggi <span class="required"></span>
                                             </label>
                                             <div class="col-md-4 col-sm-4 col-xs-12">
-                                                <input id="tinggi" type="number" name="tinggi"  data-validate-length-range="5,20" class="optional form-control col-md-7 col-xs-12" placeholder="Masukan Email">
+                                                <input id="tinggi" min="1" type="number" name="tinggi"  data-validate-length-range="5,20" class="optional form-control col-md-7 col-xs-12" placeholder="Masukan Email">
                                             </div>
                                         </div>
                                         <div class="item form-group">
                                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="berat">Berat <span class="required"></span>
                                             </label>
                                             <div class="col-md-4 col-sm-4 col-xs-12">
-                                                <input id="berat" class="form-control col-md-7 col-xs-12" data-validate-length-range="4" data-validate-number="4" name="berat" placeholder="Masukan Username" required="required" type="number">
+                                                <input id="berat" min="1" class="form-control col-md-7 col-xs-12" data-validate-length-range="4" data-validate-number="4" name="berat" placeholder="Masukan Username" required="required" type="number">
                                             </div>
                                         </div>
                                        <div class="item form-group">
                                             <label for="harga" class="control-label col-md-3">Harga</label>
                                             <div class="col-md-4 col-sm-4 col-xs-12">
-                                                <input id="harga" type="number" name="harga"  data-validate-length="0" class="form-control col-md-7 col-xs-12" placeholder="Masukan Password" required="required">
+                                                <input id="harga" min="1" type="number" name="harga"  data-validate-length="0" class="form-control col-md-7 col-xs-12" placeholder="Masukan Password" required="required">
                                             </div>
                                         </div>
                                         <div class="item form-group">
@@ -229,23 +229,6 @@ if (@$_SESSION['admin'] || @$_SESSION['user']) {
 
 	<!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
 	<script src="assets/js/demo.js"></script>
-
-	<script type="text/javascript">
-    	$(document).ready(function(){
-
-        	demo.initChartist();
-
-        	$.notify({
-            	icon: '',
-            	message: "Welcome to <b>Pergudangan</b>"
-
-            },{
-                type: 'info',
-                timer: 4000
-            });
-
-    	});
-	</script>
 
 </html>
 <?php

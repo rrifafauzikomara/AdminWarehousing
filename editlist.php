@@ -150,34 +150,34 @@
                                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="lebar">Lebar <span class="required"></span>
                                             </label>
                                             <div class="col-md-4 col-sm-4 col-xs-12">
-                                                <input id="lebar" type="number" value="<?php echo $data['lebar']; ?>" name="lebar"  data-validate-length-range="5,20" class="optional form-control col-md-7 col-xs-12" placeholder="Masukan Alamat Lengkap">
+                                                <input id="lebar" min="1" type="number" value="<?php echo $data['lebar']; ?>" name="lebar"  data-validate-length-range="5,20" class="optional form-control col-md-7 col-xs-12" placeholder="Masukan Alamat Lengkap">
                                             </div>
                                         </div>
                                         <div class="item form-group">
                                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="panjang"> Panjang<span class="required"></span>
                                             </label>
                                             <div class="col-md-4 col-sm-4 col-xs-12">
-                                                <input id="panjang" type="number" value="<?php echo $data['panjang']; ?>" name="panjang" data-validate-length-range="10,12" class="optional form-control col-md-7 col-xs-12" maxlength="12" placeholder="Masukan No Hp atau Tlp">
+                                                <input id="panjang" min="1" type="number" value="<?php echo $data['panjang']; ?>" name="panjang" data-validate-length-range="10,12" class="optional form-control col-md-7 col-xs-12" maxlength="12" placeholder="Masukan No Hp atau Tlp">
                                             </div>
                                         </div>
                                         <div class="item form-group">
                                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="tinggi">Tinggi <span class="required"></span>
                                             </label>
                                             <div class="col-md-4 col-sm-4 col-xs-12">
-                                                <input id="tinggi" value="<?php echo $data['tinggi']; ?>" type="number" name="tinggi"  data-validate-length-range="5,20" class="optional form-control col-md-7 col-xs-12" placeholder="Masukan Email">
+                                                <input id="tinggi" min="1" value="<?php echo $data['tinggi']; ?>" type="number" name="tinggi"  data-validate-length-range="5,20" class="optional form-control col-md-7 col-xs-12" placeholder="Masukan Email">
                                             </div>
                                         </div>
                                         <div class="item form-group">
                                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="berat">Berat <span class="required"></span>
                                             </label>
                                             <div class="col-md-4 col-sm-4 col-xs-12">
-                                                <input id="berat" value="<?php echo $data['berat']; ?>" class="form-control col-md-7 col-xs-12" data-validate-length-range="4" data-validate-number="4" name="berat" placeholder="Masukan Username" required="required" type="number">
+                                                <input id="berat" min="1" value="<?php echo $data['berat']; ?>" class="form-control col-md-7 col-xs-12" data-validate-length-range="4" data-validate-number="4" name="berat" placeholder="Masukan Username" required="required" type="number">
                                             </div>
                                         </div>
                                        <div class="item form-group">
                                             <label for="harga" class="control-label col-md-3">Harga</label>
                                             <div class="col-md-4 col-sm-4 col-xs-12">
-                                                <input id="harga" value="<?php echo $data['harga']; ?>" type="number" name="harga"  data-validate-length="0" class="form-control col-md-7 col-xs-12" placeholder="Masukan Password" required="required">
+                                                <input id="harga" min="1" value="<?php echo $data['harga']; ?>" type="number" name="harga"  data-validate-length="0" class="form-control col-md-7 col-xs-12" placeholder="Masukan Password" required="required">
                                             </div>
                                         </div>
                                         <div class="item form-group">

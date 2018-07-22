@@ -190,7 +190,7 @@ if (@$_SESSION['admin'] || @$_SESSION['user']) {
                             if ($nama_barang == "" || $lebar == "" || $panjang == "" || $tinggi == "" || $berat == "" || $harga == "" || $tujuan == "") {
                                     ?> <script type="text/javascript">alert("Inputan tidak boleh kosong !!");</script> <?php
                             } else {
-                                $sql_tambah = "insert into tb_barang values('', '$nama_barang', '$lebar', '$panjang', '$tinggi', '$berat', '$harga', '$tujuan', 'Ada')" or die (mysqli_error());
+                                $sql_tambah = "insert into tb_barang values('', '$nama_barang', '$lebar', '$panjang', '$tinggi', '$berat', '$harga', '$tujuan', '0', 'Ada')" or die (mysqli_error());
                                 $tmb_barang = mysqli_query($con, $sql_tambah);
                             }
                         }

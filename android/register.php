@@ -1,6 +1,6 @@
 <?php
 
-	 include_once "../../koneksi.php";
+	 include_once "../koneksi.php";
 
 	 class usr{}
 
@@ -8,6 +8,7 @@
 	 $email = $_POST["email"];
 	 $password = $_POST["password"];
 	 $confirm_password = $_POST["confirm_password"];
+	 $level = $_POST["level"];
 
 	 if ((empty($nama))) {
 	 	$response = new usr();
@@ -29,12 +30,16 @@
 	 	$response->success = 0;
 	 	$response->message = "Konfirmasi password tidak sama";
 	 	die(json_encode($response));
+	 } else if ((empty($level))) {
+	 	$response = new usr();
+	 	$response->success = 0;
+	 	$response->message = "Silahkan tentukan level anda";
 	 } else {
 		 if (!empty($email) && $password == $confirm_password){
-		 	$num_rows = mysqli_num_rows(mysqli_query($con, "SELECT * FROM tb_kubikasi WHERE email='".$email."'"));
+		 	$num_rows = mysqli_num_rows(mysqli_query($con, "SELECT * FROM tb_regis WHERE email='".$email."'"));
 
 		 	if ($num_rows == 0){
-		 		$query = mysqli_query($con, "INSERT INTO tb_kubikasi (id_kubikasi, nama, email, password, foto) VALUES(0, '".$nama."', '".$email."', '".$password."','http://192.168.100.58/pergudangan/android/kubikasi/image/default.png')");
+		 		$query = mysqli_query($con, "INSERT INTO tb_regis (id_user, nama, email, password, foto, level) VALUES(0, '".$nama."', '".$email."', '".$password."','http://192.168.100.58/pergudangan/android/image/default.png','".$level."')");
 
 		 		if ($query){
 		 			$response = new usr();
@@ -59,4 +64,4 @@
 
 	 mysqli_close($con);
 
-?>	
+?>

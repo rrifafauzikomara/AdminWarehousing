@@ -1,4 +1,3 @@
-
 <link rel="shortcut icon"  href="../images/logo.jpg"/>
 
 <script language="javascript">
@@ -10,7 +9,7 @@ function Clickheretoprint()
   
   var docprint=window.open("","",disp_setting); 
    docprint.document.open(); 
-   docprint.document.write('<html><head><title>PT PRIMAJASA</title>'); 
+   docprint.document.write('<html><head><title>Auto 2000</title>'); 
    docprint.document.write('</head><body onLoad="self.print()" style="width: 1200px; font-size:50px; font-family:arial;">');          
    docprint.document.write(content_vlue);          
    docprint.document.write('</body><table width="1350" border="2" cellpadding="4" cellspacing="5 " bgcolor="#FFFFFF"></table></html>'); 
@@ -18,13 +17,13 @@ function Clickheretoprint()
    docprint.focus(); 
 }
 </script>
-<center><a href="javascript:Clickheretoprint()">Print/Cetak Tiket</a><a href="home.php"><center>Home</a></center><br><br>
+<center><a href="javascript:Clickheretoprint()">Print/Cetak QR Code</a><a href="home.php"><center>Home</a></center><br><br>
 <div id="print_content" style="width:1350;">
-	<img src="../images/primajasa.jpg">
+	<!-- <img src="../images/primajasa.jpg"> -->
 <table width="1350" border="2" cellpadding="4" cellspacing="5 " bgcolor="#FFFFFF"></table>
-<strong><font color="#000000" size="5">Silahkan Print/Cetak Tiket Pemesanan Anda</font></strong><br>
+<strong><font color="#000000" size="5">Silahkan Print/Cetak QR Code Anda</font></strong><br>
 <table width="1350" border="2" cellpadding="4" cellspacing="5 " bgcolor="#FFFFFF"></table>
-<strong><font color="#000000" size="5">Rincian Pemesanan Tiket Anda</font></strong><br>
+<strong><font color="#000000" size="5">Rincian Data Barang Anda</font></strong><br>
 <table width="1350" border="2" cellpadding="4" cellspacing="5 " bgcolor="#FFFFFF"></table>
 
 <?php
@@ -53,9 +52,6 @@ while($row = mysqli_fetch_array($print))
     echo 'Harga : '.$harga.'<br><br>';
     echo 'Tujuan : '.$tujuan.'<br><br>';
     echo '<center><div style="height: 30%; width: 50%;">';
-    echo "<img src='https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=Nomor Barang : $id_barang, Nama Barang : $nama_barang, Lebar : $lebar, Panjang : $panjang, Tinggi : $tinggi, Berat : $berat, Harga : $harga, Tujuan : $tujuan=UTF-8' title='Link to Google.com' />";
+    echo "<img src='https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=Nomor Barang : $id_barang, Nama Barang : $nama_barang, Lebar : $lebar, Panjang : $panjang, Tinggi : $tinggi, Berat : $berat, Harga : $harga, Tujuan : $tujuan&choe=UTF-8' title='Link to Google.com' />";
    
 ?>
-<table width="1350" border="2" cellpadding="4" cellspacing="5 " bgcolor="#FFFFFF"></table>
-<strong><font color="#000000" size="5">Terima Kasih Telah Melakukan Pemesanan Tiket   
-<table width="1350" border="2" cellpadding="4" cellspacing="5 " bgcolor="#FFFFFF"></table>

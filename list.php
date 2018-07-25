@@ -8,7 +8,7 @@ include "koneksi.php";
     <!-- <link rel="icon" type="image/png" href="assets/img/favicon.ico"> -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-    <title>Pergudangan</title>
+    <title>Auto 2000</title>
 
 	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
@@ -44,7 +44,7 @@ include "koneksi.php";
     	<div class="sidebar-wrapper">
             <div class="logo">
                 <a class="simple-text">
-                    Pergudangan
+                    Auto 2000
                 </a>
             </div>
 

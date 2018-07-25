@@ -12,13 +12,13 @@ if (@$_SESSION['admin']) {
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, maximum-scale=1.0, minimum-scale=1.0, initial-scale=1.0">
-		<title>Pergudangan Login</title>
+		<title>Auto 2000 Login</title>
 		<link rel="stylesheet" type="text/css" href="css/styles.css">
 	</head>
 	<body>
 		<div class="container">
 			<header>
-				<h1>Pergudangan</h1>
+				<h1>Auto 2000</h1>
 			</header>
 			<div class="loginForm">
 				<img id="profile" class="profile" src="images/profile.png" alt="Profile Picture">

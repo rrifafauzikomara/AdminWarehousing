@@ -131,7 +131,7 @@
                                         <th><div align="center">Berat</div></th>
                                         <th><div align="center">Harga</div></th>
                                         <th><div align="center">Tujuan</div></th>
-                                        <th><div align="center">Aksi</div></th>
+                                        <!-- <th><div align="center">Aksi</div></th> -->
                                     </thead>
                                     <tbody>
 
@@ -163,7 +163,7 @@
                                             <td><div align="center"><?php echo $berat; ?></div></td>
                                             <td><div align="center"><?php echo $harga; ?></div></td>
                                             <td><div align="center"><?php echo $tujuan; ?></div></td>
-                                            <?php
+                                            <!-- <?php
                                             if($stock=="Ada"){
                                             ?>
                                             <td><div align="center"><a href="qrcode.php?id=<?php echo $id_barang; ?>&namabarang=<?php echo $nama_barang; ?>&lebar=<?php echo $lebar; ?>&panjang=<?php echo $panjang; ?>&tinggi=<?php echo $tinggi; ?>&berat=<?php echo $berat; ?>&harga=<?php echo $harga; ?>&tujuan=<?php echo $tujuan; ?>">Cetak QR Code</a></div></td>
@@ -173,7 +173,7 @@
                                             ?>
                                             <?php
                                               }
-                                            ?>
+                                            ?> -->
                                         </tr>
                                     </tbody>
                                 </table>

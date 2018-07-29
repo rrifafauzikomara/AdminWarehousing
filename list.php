@@ -139,7 +139,16 @@ include "koneksi.php";
                                         <?php
 			                            $sql = "select * from tb_barang" or die (mysql_error());
 			                            $barang = mysqli_query($con, $sql);
-			                            while($data = mysqli_fetch_array($barang)) {        
+			                            while($data = mysqli_fetch_array($barang)) {
+                                            $id_barang=$data['id_barang'];
+                                            $nama_barang = $data['nama_barang'];
+                                            $lebar = $data['lebar'];
+                                            $panjang = $data['panjang'];
+                                            $tinggi = $data['tinggi'];
+                                            $berat = $data['berat'];
+                                            $harga = $data['harga'];
+                                            $tujuan = $data['tujuan'];
+                                            $stock = $data['stock'];
 			                            ?>
 
                                         <tr>
@@ -159,6 +168,17 @@ include "koneksi.php";
                                         <i class="fa fa-times fa-fw"></i>
                                         </a>
                                         </td>
+                                        <?php
+                                            if($stock=="Ada"){
+                                            ?>
+                                            <td><div align="center"><a href="qrcode.php?id=<?php echo $id_barang; ?>&namabarang=<?php echo $nama_barang; ?>&lebar=<?php echo $lebar; ?>&panjang=<?php echo $panjang; ?>&tinggi=<?php echo $tinggi; ?>&berat=<?php echo $berat; ?>&harga=<?php echo $harga; ?>&tujuan=<?php echo $tujuan; ?>">Cetak QR Code</a></div></td>
+                                            <?php
+                                            }
+                                            else if($status=="Kosong") {
+                                            ?>
+                                            <?php
+                                              }
+                                            ?>
                                         </tr>
                                         <?php
 			                            }

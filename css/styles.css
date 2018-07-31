@@ -29,8 +29,9 @@ a {
 }
 /*<===============================================>*/
 /*<========Top to Bottom ordered CSS rules========>*/
-.container {
+.container1 {
 	overflow: hidden;
+	font: "arial";
 }
 .loginForm {
 	margin: 1em auto 0 auto;
@@ -39,7 +40,7 @@ a {
 }
 header h1 {
 	color: rgba(240,240,240,1);
-	font-family: 'black_jackregular';
+	font-family: 'black_jackregul';
 	font-weight: bold;
 	font-size: 8em;
 	font-variant: small-caps;

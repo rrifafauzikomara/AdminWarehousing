@@ -11,15 +11,24 @@ if (@$_SESSION['admin']) {
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, maximum-scale=1.0, minimum-scale=1.0, initial-scale=1.0">
-		<title>Auto 2000 Login</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+    	<title>Auto2000</title>
+    	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    	<link rel="stylesheet" href="assets/css/sweetalert.css">
+    	<link rel="stylesheet" href="assets/css/tampilan.css">
+    	<link rel="stylesheet" href="assets/css/st.css">
 		<link rel="stylesheet" type="text/css" href="css/styles.css">
 	</head>
 	<body>
-		<div class="container">
-			<header>
-				<h1>Auto 2000</h1>
-			</header>
+		<div class="konten">
+			<div class="konten">
+        <div class="row">
+            <form action="<?=$_SERVER['REQUEST_URI']?>" method="POST">
+                <div class="panel panel-dark login-box">
+                    <div 
+                        class="panel-heading">
+                            <h1 class="text-center">Auto 2000</h1></div>
+                        </div>
 			<div class="loginForm">
 				<img id="profile" class="profile" src="images/profile.png" alt="Profile Picture">
 				<form method="post" action="">

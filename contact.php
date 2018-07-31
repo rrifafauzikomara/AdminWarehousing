@@ -84,7 +84,7 @@
 								<div class="col-sm-7 col-sm-push-1 col-md-7 col-md-push-1">
 									
 									<h2>About Us</h2>
-									<h3>Address : Jalan Paster</h3>
+									<h3>Address : Jalan Soekarno Hatta</h3>
 									<h3>Telpon : (0342)77854621</h3>
 									<h3>Email : auto2000@gmail.com</h3>
 					

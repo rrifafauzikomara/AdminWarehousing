@@ -1,17 +1,13 @@
-<?php
-@session_start();
-include "koneksi.php";
 
-if (@$_SESSION['admin']) {
-	header("location: home.php");
-} else {
-?>
 <!DOCTYPE html>
-<html class="no-js"> <!--<![endif]-->
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 	<head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Auto 2000</title>
+	<title>Aplikasi Website Travel</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="Free HTML5 Template by FREEHTML5.CO" />
 	<meta name="keywords" content="free html5, free template, free bootstrap, html5, css3, mobile first, responsive" />
@@ -72,7 +68,7 @@ if (@$_SESSION['admin']) {
 		<!-- end:header-top -->
 	
 		<div class="fh5co-hero">
-			<div class="fh5co-cover" data-stellar-background-ratio="0.5" style="background-image: url(images/auto2000.jpg);">
+			<div class="fh5co-cover" style="background-image: url(images/auto2000.jpg);">
 				<div class="desc">
 					<div class="container">
 						<div class="row">
@@ -87,20 +83,39 @@ if (@$_SESSION['admin']) {
 
 								</div>
 							</div>
+							<div class="desc2 animate-box">
+								<div class="col-sm-7 col-sm-push-1 col-md-7 col-md-push-1">
+									
+									<h2>About Us</h2>
+									<h3>Address : Jalan Paster</h3>
+									<h3>Telpon : (0342)77854621</h3>
+									<h3>Email : auto2000@gmail.com</h3>
+					
+									<!-- <p><a class="btn btn-primary btn-lg" href="#">Get Started</a></p> -->
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
+
 		</div>
-		</div>
-		</div>
-	</body>
+		
+		
 		<!-- fh5co-blog-section -->
 		
 		
 <?php include("footer.php") ?>
 	
+
+	</div>
+	<!-- END fh5co-page -->
+
+	</div>
+	<!-- END fh5co-wrapper -->
+
 	<!-- jQuery -->
+
 
 	<script src="js/jquery.min.js"></script>
 	<!-- jQuery Easing -->
@@ -130,6 +145,4 @@ if (@$_SESSION['admin']) {
 
 	</body>
 </html>
-<?php
-}
-?>
+

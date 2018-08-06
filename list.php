@@ -43,14 +43,14 @@ include "koneksi.php";
 
     	<div class="sidebar-wrapper">
             <div class="logo">
-                <a class="simple-text">
+                <a href="home.php" class="simple-text">
                     Auto 2000
                 </a>
             </div>
 
             <ul class="nav">
                 <li>
-                    <a href="home.php">
+                    <a href="barang.php">
                         <i class="pe-7s-plus"></i>
                         <p>Barang</p>
                     </a>
@@ -93,6 +93,28 @@ include "koneksi.php";
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="header">
+                                <fieldset>
+                                    <form class="form-horizontal form-label-left" method="post" action="" enctype="multipart/form-data">
+                                        <div class="item form-group">
+                                            <label class="control-label col-md-4" for="tgl_masuk">Tanggal Masuk<span class="required"></span></label>
+                                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                                <input id="tgl_masuk" class="form-control col-md-7 col-xs-12" name="tgl_masuk" type="date" value="<?php echo date("Y-m-d");?>" required="required">
+                                            </div>
+                                        </div>
+                                        <div class="ln_solid"></div>
+                                        <div class="form-group">
+                                        <div class="col-md-6 col-md-offset-5">
+                                            <input type="submit" name="cari" value="Cari" class="btn btn-primary">
+                                            <input type="reset" value="Reset" class="btn btn-primary">
+                                        </div>
+                                        </div>
+                                </fieldset>
+                            </div>
+                        </div>
+                    </div>
 
                 	<?php
                         $id_barang = @$_POST['id_barang'];
@@ -199,7 +221,7 @@ include "koneksi.php";
         <footer class="footer">
             <div class="container-fluid">
                 <p class="copyright pull-left">
-                    &copy; <script>document.write(new Date().getFullYear())</script> <a>Pergudangan</a>, made with love for a better web
+                    &copy; <script>document.write(new Date().getFullYear())</script> <a>Auto 2000</a>
                 </p>
             </div>
         </footer>

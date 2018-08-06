@@ -40,14 +40,14 @@
 
     	<div class="sidebar-wrapper">
             <div class="logo">
-                <a class="simple-text">
+                <a href="home.php" class="simple-text">
                     Auto 2000
                 </a>
             </div>
 
             <ul class="nav">
                 <li>
-                    <a href="home.php">
+                    <a href="barang.php">
                         <i class="pe-7s-plus"></i>
                         <p>Barang</p>
                     </a>
@@ -188,7 +188,7 @@
         <footer class="footer">
             <div class="container-fluid">
                 <p class="copyright pull-left">
-                    &copy; <script>document.write(new Date().getFullYear())</script> <a>Pergudangan</a>, made with love for a better web
+                    &copy; <script>document.write(new Date().getFullYear())</script> <a>Auto 2000</a>
                 </p>
             </div>
         </footer>

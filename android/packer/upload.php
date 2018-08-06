@@ -4,7 +4,7 @@
 	
 	class usr{}
 	
-	$id_user = $_POST['id_user'];
+	$id = $_POST['id_user'];
 	$foto = $_POST['foto'];
 	$nama = $_POST['nama'];
 	$email = $_POST["email"];
@@ -26,9 +26,9 @@
 		$path = "image/".$random.".png";
 		
 		// untuk menyimpan lokasi gambar yang telah di upload
-		$actualpath = "http://192.168.100.58/pergudangan/android/packer/$path";
+		$actualpath = "http://192.168.100.69/pergudangan/android/packer/$path";
 		
-		$query = mysqli_query($con, " UPDATE tb_regis SET nama = '$nama', email = '$email', foto = '$actualpath' WHERE id_user = '$id_user'");
+		$query = mysqli_query($con, " UPDATE tb_regis SET nama = '$nama', email = '$email', foto = '$actualpath' WHERE id_user = '$id'");
 	
 		if ($query){
 			file_put_contents($path,base64_decode($foto));
@@ -46,11 +46,11 @@
 	}	
 	
 	// fungsi random string pada gambar untuk menghindari nama file yang sama
-	function random_word($id_user = 20){
+	function random_word($id = 20){
 		$pool = '1234567890abcdefghijkmnpqrstuvwxyz';
 		
 		$word = '';
-		for ($i = 0; $i < $id_user; $i++){
+		for ($i = 0; $i < $id; $i++){
 			$word .= substr($pool, mt_rand(0, strlen($pool) -1), 1);
 		}
 		return $word; 

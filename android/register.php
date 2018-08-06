@@ -39,7 +39,7 @@
 		 	$num_rows = mysqli_num_rows(mysqli_query($con, "SELECT * FROM tb_regis WHERE email='".$email."'"));
 
 		 	if ($num_rows == 0){
-		 		$query = mysqli_query($con, "INSERT INTO tb_regis (id_user, nama, email, password, foto, level) VALUES(0, '".$nama."', '".$email."', '".$password."','http://192.168.100.58/pergudangan/android/image/default.png','".$level."')");
+		 		$query = mysqli_query($con, "INSERT INTO tb_regis (id_user, nama, email, password, foto, level) VALUES(0, '".$nama."', '".$email."', '".$password."','http://192.168.100.69/pergudangan/android/','".$level."')");
 
 		 		if ($query){
 		 			$response = new usr();

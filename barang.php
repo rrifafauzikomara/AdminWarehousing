@@ -51,7 +51,7 @@
             </div>
 
             <ul class="nav">
-                <li>
+                <li class="active">
                     <a href="barang.php">
                         <i class="pe-7s-plus"></i>
                         <p>Barang</p>
@@ -63,7 +63,7 @@
                         <p>Search Barang</p>
                     </a>
                 </li>
-                <li class="active">
+                <li>
                     <a href="list.php">
                         <i class="pe-7s-note2"></i>
                         <p>List Barang</p>
@@ -104,113 +104,68 @@
                                 <hr>
                             </div>
                             <fieldset>
-
-                            	<?php
-			                       include "koneksi.php";
-			                        $id_barang = @$_POST['id_barang'];
-			                        $nama_barang = @$_POST['nama_barang'];
-			                        $lebar = @$_POST['lebar'];
-			                        $panjang = @$_POST['panjang'];
-			                        $tinggi = @$_POST['tinggi'];
-			                        $berat = @$_POST['berat'];
-			                        $harga = @$_POST['harga'];
-			                        $tujuan = @$_POST['tujuan'];
-                                    $qty = @$_POST['qty'];
-			                        $stock = @$_POST['stock'];
-
-                        			$tambah = @$_POST['edit'];
-
-			                        if ($tambah) {
-			                            if ($id_barang == "" || $nama_barang == "" || $lebar == "" || $panjang == "" || $tinggi == "" || $berat == "" || $harga == "" || $tujuan == "" || $qty == "" || $stock == "") {
-			                                    ?> <script type="text/javascript">alert("Inputan tidak boleh kosong !!");</script> <?php
-			                            } else {
-			                                $sql_tambah = "update tb_barang set nama_barang='$nama_barang', lebar='$lebar', panjang='$panjang', tinggi='$tinggi', berat='$berat', harga='$harga', tujuan='$tujuan', qty='$qty', stock='$stock' where id_barang='$id_barang'" or die (mysqli_error());
-			                                $register = mysqli_query($con, $sql_tambah);
-			                                
-			                                echo "<script type=text/javascript>
-						                                window.location.href='http://localhost/pergudangan/list.php';
-						                                </script>";
-			                            }
-			                        }
-                                     
-                                     $sql = "select * from tb_barang where id_barang ='$_GET[id]'" or die (mysqli_error());
-                                     $update = mysqli_query($con, $sql);
-                                     $data=mysqli_fetch_array($update);
-                                     ?>
-
                                     <form class="form-horizontal form-label-left" method="post" action="" enctype="multipart/form-data">
                                         <div class="item form-group">
-                                        	<input type="hidden" name="id_barang" value="<?php echo $data['id_barang']; ?>">
                                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nama_barang">Nama Barang <span class="required"></span>
                                             </label>
                                             <div class="col-md-4 col-sm-4 col-xs-12">
-                                                <input type="text" id="nama_barang" name="nama_barang" required="required" data-validate-minmax="10,100" class="form-control col-md-7 col-xs-12" placeholder="Masukan Nama Lengkap" value="<?php echo $data['nama_barang']; ?>">
+                                                <input type="text" id="nama_barang" name="nama_barang" required="required" data-validate-minmax="10,100" class="form-control col-md-7 col-xs-12" placeholder="Masukan Nama Lengkap">
                                             </div>
                                         </div>
                                         <div class="item form-group">
                                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="lebar">Lebar <span class="required"></span>
                                             </label>
                                             <div class="col-md-4 col-sm-4 col-xs-12">
-                                                <input id="lebar" min="1" type="number" value="<?php echo $data['lebar']; ?>" name="lebar"  data-validate-length-range="5,20" class="optional form-control col-md-7 col-xs-12" placeholder="Masukan Alamat Lengkap">
+                                                <input id="lebar" min="1" type="number" name="lebar"  data-validate-length-range="5,20" class="optional form-control col-md-7 col-xs-12" placeholder="Masukan Alamat Lengkap">
                                             </div>
                                         </div>
                                         <div class="item form-group">
                                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="panjang"> Panjang<span class="required"></span>
                                             </label>
                                             <div class="col-md-4 col-sm-4 col-xs-12">
-                                                <input id="panjang" min="1" type="number" value="<?php echo $data['panjang']; ?>" name="panjang" data-validate-length-range="10,12" class="optional form-control col-md-7 col-xs-12" maxlength="12" placeholder="Masukan No Hp atau Tlp">
+                                                <input id="panjang" min="1" type="number" name="panjang" data-validate-length-range="10,12" class="optional form-control col-md-7 col-xs-12" maxlength="12" placeholder="Masukan No Hp atau Tlp">
                                             </div>
                                         </div>
                                         <div class="item form-group">
                                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="tinggi">Tinggi <span class="required"></span>
                                             </label>
                                             <div class="col-md-4 col-sm-4 col-xs-12">
-                                                <input id="tinggi" min="1" value="<?php echo $data['tinggi']; ?>" type="number" name="tinggi"  data-validate-length-range="5,20" class="optional form-control col-md-7 col-xs-12" placeholder="Masukan Email">
+                                                <input id="tinggi" min="1" type="number" name="tinggi"  data-validate-length-range="5,20" class="optional form-control col-md-7 col-xs-12" placeholder="Masukan Email">
                                             </div>
                                         </div>
                                         <div class="item form-group">
                                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="berat">Berat <span class="required"></span>
                                             </label>
                                             <div class="col-md-4 col-sm-4 col-xs-12">
-                                                <input id="berat" min="1" value="<?php echo $data['berat']; ?>" class="form-control col-md-7 col-xs-12" data-validate-length-range="4" data-validate-number="4" name="berat" placeholder="Masukan Username" required="required" type="number">
+                                                <input id="berat" min="1" class="form-control col-md-7 col-xs-12" data-validate-length-range="4" data-validate-number="4" name="berat" placeholder="Masukan Username" required="required" type="number">
                                             </div>
                                         </div>
                                        <div class="item form-group">
                                             <label for="harga" class="control-label col-md-3">Harga</label>
                                             <div class="col-md-4 col-sm-4 col-xs-12">
-                                                <input id="harga" min="1" value="<?php echo $data['harga']; ?>" type="number" name="harga"  data-validate-length="0" class="form-control col-md-7 col-xs-12" placeholder="Masukan Password" required="required">
+                                                <input id="harga" min="1" type="number" name="harga"  data-validate-length="0" class="form-control col-md-7 col-xs-12" placeholder="Masukan Password" required="required">
+                                            </div>
+                                        </div>
+                                        <div class="item form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="tgl_masuk">Tanggal Masuk</label>
+                                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                                <input id="tgl_masuk" class="form-control col-md-7 col-xs-12" name="tgl_masuk" type="date" value="<?php echo date("Y-m-d");?>" >
                                             </div>
                                         </div>
                                         <div class="item form-group">
                                         <label for="tujuan" class="control-label col-md-3">Tujuan</label>
                                         <div class="col-md-4 col-sm-4 col-xs-12">
-                                        <select class="form-control" name='tujuan' value="<?php echo $data['tujuan']; ?>" requered="requered">
+                                        <select class="form-control" name='tujuan' requered="requered">
                                                     <option>Paster</option>
                                                     <option>Cimahi</option>
-                                        </select>
-                                        </div>
-                                        </div>
-                                        <div class="item form-group">
-                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="qty">Qty <span class="required"></span>
-                                            </label>
-                                            <div class="col-md-4 col-sm-4 col-xs-12">
-                                                <input id="qty" min="1" value="<?php echo $data['qty']; ?>" class="form-control col-md-7 col-xs-12" data-validate-length-range="4" data-validate-number="4" name="qty" placeholder="Masukan Username" required="required" type="number">
-                                            </div>
-                                        </div>
-                                        <div class="item form-group">
-                                        <label for="stock" class="control-label col-md-3">Stock</label>
-                                        <div class="col-md-4 col-sm-4 col-xs-12">
-                                        <select class="form-control" name='stock' value="<?php echo $data['stock']; ?>" requered="requered">
-                                                    <option>Ada</option>
-                                                    <option>Kosong</option>
                                         </select>
                                         </div>
                                         </div>
                                         <div class="ln_solid"></div>
                                         <div class="form-group">
                                             <div class="col-md-6 col-md-offset-3">
-                                                <input type="submit" name="edit" value="Edit" class="btn btn-primary">
-                                                <input type="reset" value="Cancel" class="btn btn-primary">
+                                                <input type="submit" name="tambah" value="Tambah" class="btn btn-primary">
+                                                <input type="reset" value="Reset" class="btn btn-primary">
                                             </div>
                                         </div>
                                     </form>
@@ -218,6 +173,33 @@
                         </div>
                     </div>
                 </div>
+
+                <?php
+                		include "koneksi.php";
+                        $id_barang = @$_POST['id_barang'];
+                        $nama_barang = @$_POST['nama_barang'];
+                        $lebar = @$_POST['lebar'];
+                        $panjang = @$_POST['panjang'];
+                        $tinggi = @$_POST['tinggi'];
+                        $berat = @$_POST['berat'];
+                        $harga = @$_POST['harga'];
+                        $tgl_masuk = @$_POST['tgl_masuk'];
+                        $tujuan = @$_POST['tujuan'];
+                        $tambah = @$_POST['tambah'];
+                        $stock = @$_POST['stock'];
+
+                        if ($tambah) {
+                            if ($nama_barang == "" || $lebar == "" || $panjang == "" || $tinggi == "" || $berat == "" || $harga == "" || $tgl_masuk == "" || $tujuan == "") {
+                                    ?> <script type="text/javascript">alert("Inputan tidak boleh kosong !!");</script> <?php
+                            } else {
+                                $sql_tambah = "insert into tb_barang values('', '$nama_barang', '$lebar', '$panjang', '$tinggi', '$berat', '$harga', '$tgl_masuk', '$tujuan', '0', 'Ada')" or die (mysqli_error());
+                                $tmb_barang = mysqli_query($con, $sql_tambah);
+                                ?> <script type="text/javascript">alert("Tambah Barang Berhasil");</script> <?php
+
+                            }
+                        }
+                        
+                        ?>
 
         <footer class="footer">
             <div class="container-fluid">
@@ -251,4 +233,5 @@
 
 	<!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
 	<script src="assets/js/demo.js"></script>
+
 </html>

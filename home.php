@@ -57,8 +57,8 @@ if (@$_SESSION['admin'] || @$_SESSION['user']) {
             </div>
 
             <ul class="nav">
-                <li class="active">
-                    <a href="home.php">
+                <li>
+                    <a href="barang.php">
                         <i class="pe-7s-plus"></i>
                         <p>Barang</p>
                     </a>
@@ -83,7 +83,7 @@ if (@$_SESSION['admin'] || @$_SESSION['user']) {
         <nav class="navbar navbar-default navbar-fixed">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <a class="navbar-brand">Tambah Barang</a>
+                    <a class="navbar-brand">Home</a>
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
@@ -105,102 +105,27 @@ if (@$_SESSION['admin'] || @$_SESSION['user']) {
 
                     <div class="col-md-12">
                         <div class="card">
-                            <div class="header">
-                                <h4 class="title">Tambah Data Barang</h4>
-                                <hr>
+                            
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-12 col-md-12">
+                                    <div class="jumbotron">
+                                        <h1>Selamat datang!</h1>
+                                        <p>Auto 2000</p>
+                                    </div>
+    
+                                    <!-- query here -->
+
+                                </div>
                             </div>
-                            <fieldset>
-                                    <form class="form-horizontal form-label-left" method="post" action="" enctype="multipart/form-data">
-                                        <div class="item form-group">
-                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nama_barang">Nama Barang <span class="required"></span>
-                                            </label>
-                                            <div class="col-md-4 col-sm-4 col-xs-12">
-                                                <input type="text" id="nama_barang" name="nama_barang" required="required" data-validate-minmax="10,100" class="form-control col-md-7 col-xs-12" placeholder="Masukan Nama Lengkap">
-                                            </div>
-                                        </div>
-                                        <div class="item form-group">
-                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="lebar">Lebar <span class="required"></span>
-                                            </label>
-                                            <div class="col-md-4 col-sm-4 col-xs-12">
-                                                <input id="lebar" min="1" type="number" name="lebar"  data-validate-length-range="5,20" class="optional form-control col-md-7 col-xs-12" placeholder="Masukan Alamat Lengkap">
-                                            </div>
-                                        </div>
-                                        <div class="item form-group">
-                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="panjang"> Panjang<span class="required"></span>
-                                            </label>
-                                            <div class="col-md-4 col-sm-4 col-xs-12">
-                                                <input id="panjang" min="1" type="number" name="panjang" data-validate-length-range="10,12" class="optional form-control col-md-7 col-xs-12" maxlength="12" placeholder="Masukan No Hp atau Tlp">
-                                            </div>
-                                        </div>
-                                        <div class="item form-group">
-                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="tinggi">Tinggi <span class="required"></span>
-                                            </label>
-                                            <div class="col-md-4 col-sm-4 col-xs-12">
-                                                <input id="tinggi" min="1" type="number" name="tinggi"  data-validate-length-range="5,20" class="optional form-control col-md-7 col-xs-12" placeholder="Masukan Email">
-                                            </div>
-                                        </div>
-                                        <div class="item form-group">
-                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="berat">Berat <span class="required"></span>
-                                            </label>
-                                            <div class="col-md-4 col-sm-4 col-xs-12">
-                                                <input id="berat" min="1" class="form-control col-md-7 col-xs-12" data-validate-length-range="4" data-validate-number="4" name="berat" placeholder="Masukan Username" required="required" type="number">
-                                            </div>
-                                        </div>
-                                       <div class="item form-group">
-                                            <label for="harga" class="control-label col-md-3">Harga</label>
-                                            <div class="col-md-4 col-sm-4 col-xs-12">
-                                                <input id="harga" min="1" type="number" name="harga"  data-validate-length="0" class="form-control col-md-7 col-xs-12" placeholder="Masukan Password" required="required">
-                                            </div>
-                                        </div>
-                                        <div class="item form-group">
-                                        <label for="tujuan" class="control-label col-md-3">Tujuan</label>
-                                        <div class="col-md-4 col-sm-4 col-xs-12">
-                                        <select class="form-control" name='tujuan' requered="requered">
-                                                    <option>Paster</option>
-                                                    <option>Cimahi</option>
-                                        </select>
-                                        </div>
-                                        </div>
-                                        <div class="ln_solid"></div>
-                                        <div class="form-group">
-                                            <div class="col-md-6 col-md-offset-3">
-                                                <input type="submit" name="tambah" value="Tambah" class="btn btn-primary">
-                                                <input type="reset" value="Reset" class="btn btn-primary">
-                                            </div>
-                                        </div>
-                                    </form>
-                            </fieldset>
+
                         </div>
                     </div>
                 </div>
 
-                <?php
-                        $id_barang = @$_POST['id_barang'];
-                        $nama_barang = @$_POST['nama_barang'];
-                        $lebar = @$_POST['lebar'];
-                        $panjang = @$_POST['panjang'];
-                        $tinggi = @$_POST['tinggi'];
-                        $berat = @$_POST['berat'];
-                        $harga = @$_POST['harga'];
-                        $tujuan = @$_POST['tujuan'];
-                        $tambah = @$_POST['tambah'];
-                        $stock = @$_POST['stock'];
-
-                        if ($tambah) {
-                            if ($nama_barang == "" || $lebar == "" || $panjang == "" || $tinggi == "" || $berat == "" || $harga == "" || $tujuan == "") {
-                                    ?> <script type="text/javascript">alert("Inputan tidak boleh kosong !!");</script> <?php
-                            } else {
-                                $sql_tambah = "insert into tb_barang values('', '$nama_barang', '$lebar', '$panjang', '$tinggi', '$berat', '$harga', '$tujuan', '0', 'Ada')" or die (mysqli_error());
-                                $tmb_barang = mysqli_query($con, $sql_tambah);
-                            }
-                        }
-                        
-                        ?>
-
         <footer class="footer">
             <div class="container-fluid">
                 <p class="copyright pull-right">
-                    &copy; <script>document.write(new Date().getFullYear())</script> <a>Pergudangan</a>, made with love for a better web
+                    &copy; <script>document.write(new Date().getFullYear())</script> <a>Auto 2000</a>
                 </p>
             </div>
         </footer>
@@ -229,6 +154,8 @@ if (@$_SESSION['admin'] || @$_SESSION['user']) {
 
 	<!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
 	<script src="assets/js/demo.js"></script>
+
+    
 
 </html>
 <?php

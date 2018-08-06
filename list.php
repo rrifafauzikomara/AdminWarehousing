@@ -101,7 +101,7 @@ include "koneksi.php";
                                         <div class="item form-group">
                                             <label class="control-label col-md-4" for="tgl_masuk">Tanggal Masuk<span class="required"></span></label>
                                             <div class="col-md-4 col-sm-4 col-xs-12">
-                                                <input id="tgl_masuk" class="form-control col-md-7 col-xs-12" name="tgl_masuk" type="date" value="<?php echo date("Y-m-d");?>" required="required">
+                                                <input id="tgl_masuk" class="form-control col-md-7 col-xs-12" name="tgl_masuk" type="date" value="<?php echo date("d-m-Y");?>" required="required">
                                             </div>
                                         </div>
                                         <div class="ln_solid"></div>
@@ -116,7 +116,7 @@ include "koneksi.php";
                         </div>
                     </div>
 
-                	<?php
+                    <?php
                         $id_barang = @$_POST['id_barang'];
                         $nama_barang = @$_POST['nama_barang'];
                         $lebar = @$_POST['lebar'];
@@ -152,6 +152,7 @@ include "koneksi.php";
                                     	<th><div align="center">Tinggi</div></th>
                                         <th><div align="center">Berat</div></th>
                                         <th><div align="center">Harga</div></th>
+                                        <th><div align="center">Tanggal</div></th>
                                         <th><div align="center">Tujuan</div></th>
                                         <th><div align="center">Qty</div></th>
                                         <th><div align="center">Stock</div></th>
@@ -160,9 +161,18 @@ include "koneksi.php";
                                     <tbody>
 
                                         <?php
-			                            $sql = "select * from tb_barang" or die (mysql_error());
-			                            $barang = mysqli_query($con, $sql);
-			                            while($data = mysqli_fetch_array($barang)) {
+
+                                        if (isset($_POST['tgl_masuk'])) {
+                                            $tgl=$_POST['tgl_masuk'];
+                                            $result = "SELECT * FROM tb_barang WHERE tgl_masuk='$tgl'" or die(mysqli_error());
+                                            $print = mysqli_query($con, $result);
+                                        } else {
+                                            $sql = "select * from tb_barang" or die (mysql_error());
+                                            $print = mysqli_query($con, $sql);
+                                        
+                                        }
+
+                                        while($data = mysqli_fetch_array($print)) {
                                             $id_barang=$data['id_barang'];
                                             $nama_barang = $data['nama_barang'];
                                             $lebar = $data['lebar'];
@@ -173,7 +183,8 @@ include "koneksi.php";
                                             $tujuan = $data['tujuan'];
                                             $qty = $data['qty'];
                                             $stock = $data['stock'];
-			                            ?>
+
+                                        ?>
 
                                         <tr>
                                             <td><div align="center"><?php echo $data['id_barang']; ?></div></td>
@@ -183,6 +194,7 @@ include "koneksi.php";
                                             <td><div align="center"><?php echo $data['tinggi']; ?></div></td>
                                             <td><div align="center"><?php echo $data['berat']; ?></div></td>
                                             <td><div align="center"><?php echo $data['harga']; ?></div></td>
+                                            <td><div align="center"><?php echo $data['tgl_masuk']; ?></div></td>
                                             <td><div align="center"><?php echo $data['tujuan']; ?></div></td>
                                             <td><div align="center"><?php echo $data['qty']; ?></div></td>
                                             <td><div align="center"><?php echo $data['stock']; ?></div></td>

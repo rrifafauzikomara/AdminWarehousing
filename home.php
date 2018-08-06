@@ -112,7 +112,72 @@ if (@$_SESSION['admin'] || @$_SESSION['user']) {
                                         <h1>Selamat datang!</h1>
                                         <p>Auto 2000</p>
                                     </div>
-    
+                                    
+                                    <div class="col-xs-12 col-sm-12 col-md-4">
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                <h3 class="panel-title">Jenis Barang</h3>
+                                            </div>
+                                            <div class="panel-body">
+                                                <ol>
+                                                    <?php
+                                                        $sql = "SELECT * FROM tb_barang ORDER BY id_barang ASC" or die(mysqli_error());
+                                                        $print = mysqli_query($con, $sql);
+                                                        while($data = mysqli_fetch_array($print)) {
+                                                            $nama_barang = $data['nama_barang'];
+                                                    ?>
+                                                    <li><?php echo $data['nama_barang'] ?></li>
+                                                </ol>
+                                                <?php
+                                                }
+                                                ?>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xs-12 col-sm-12 col-md-4">
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                <h3 class="panel-title">User Packer</h3>
+                                            </div>
+                                            <div class="panel-body">
+                                                <ol>
+                                                    <?php
+                                                        $result = "SELECT * FROM tb_regis WHERE level='Packer'" or die(mysqli_error());
+                                                        $print = mysqli_query($con, $result);
+                                                        while($data = mysqli_fetch_array($print)){
+                                                            $nama = $data['nama'];
+                                                    ?>
+                                                    <li><?php echo $data['nama'] ?></li>
+                                                </ol>
+                                                <?php
+                                                }
+                                                ?>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xs-12 col-sm-12 col-md-4">
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                <h3 class="panel-title">User Kubikasi</h3>
+                                            </div>
+                                            <div class="panel-body">
+                                                <ol>
+                                                    <?php
+                                                        $result = "SELECT * FROM tb_regis WHERE level='Kubikasi'" or die(mysqli_error());
+                                                        $print = mysqli_query($con, $result);
+                                                        while($data = mysqli_fetch_array($print)){
+                                                            $nama = $data['nama'];
+                                                    ?>
+                                                    <li><?php echo $data['nama'] ?></li>
+                                                </ol>
+                                                <?php
+                                                }
+                                                ?>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <!-- query here -->
 
                                 </div>

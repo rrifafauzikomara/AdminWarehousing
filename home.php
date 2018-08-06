@@ -126,7 +126,7 @@ if (@$_SESSION['admin'] || @$_SESSION['user']) {
                                                         while($data = mysqli_fetch_array($print)) {
                                                             $nama_barang = $data['nama_barang'];
                                                     ?>
-                                                    <li><?php echo $data['nama_barang'] ?></li>
+                                                    <li><a href="hasil.php?nama_barang=<?php echo $data['nama_barang'] ?>"><?php echo $data['nama_barang'] ?></a></li>
                                                 </ol>
                                                 <?php
                                                 }

@@ -156,7 +156,7 @@ include "koneksi.php";
                                         <th><div align="center">Tujuan</div></th>
                                         <th><div align="center">Qty</div></th>
                                         <th><div align="center">Stock</div></th>
-                                        <th><div align="center">Aksi</div></th>
+                                        <!-- <th><div align="center">Aksi</div></th> -->
                                     </thead>
                                     <tbody>
 
@@ -205,7 +205,7 @@ include "koneksi.php";
                                         <i class="fa fa-times fa-fw"></i>
                                         </a>
                                         </td>
-                                        <?php
+                                        <!-- <?php
                                             if($stock=="Ada"){
                                             ?>
                                             <td><div align="center"><a href="qrcode.php?id=<?php echo $id_barang; ?>&namabarang=<?php echo $nama_barang; ?>&lebar=<?php echo $lebar; ?>&panjang=<?php echo $panjang; ?>&tinggi=<?php echo $tinggi; ?>&berat=<?php echo $berat; ?>&harga=<?php echo $harga; ?>&tujuan=<?php echo $tujuan; ?>">Cetak QR Code</a></div></td>
@@ -215,7 +215,7 @@ include "koneksi.php";
                                             ?>
                                             <?php
                                               }
-                                            ?>
+                                            ?> -->
                                         </tr>
                                         <?php
 			                            }

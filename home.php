@@ -85,7 +85,7 @@ if (@$_SESSION['admin'] || @$_SESSION['user']) {
 <body>
 
 <div class="wrapper">
-    <div class="sidebar" data-color="purple" data-image="assets/img/sidebar-5.jpg">
+    <div class="sidebar" data-color="red" data-image="assets/img/sidebar-5.jpg">
 
     <!--
 
@@ -97,7 +97,7 @@ if (@$_SESSION['admin'] || @$_SESSION['user']) {
     	<div class="sidebar-wrapper">
             <div class="logo">
                 <a href="home.php" class="simple-text">
-                    Auto 2000
+                    <img src="images/logoHeader.png" width="200px" height="40px"/>
                 </a>
             </div>
 
@@ -161,7 +161,7 @@ if (@$_SESSION['admin'] || @$_SESSION['user']) {
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="jumbotron">
                                         <h1>Selamat datang!</h1>
-                                        <p>Auto 2000</p>
+                                        <p>Di Perusahaan Auto 2000</p>
                                     </div>
 
                                     <div id='container'></div>

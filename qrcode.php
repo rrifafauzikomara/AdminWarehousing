@@ -46,6 +46,7 @@ while($data = mysqli_fetch_array($print))
     $qty = $data['qty'];
     $total = $data['harga'] * $data['qty'];
     $stock = $data['stock'];
+    $status = $data['status'];
 	}
     echo '<font color=#"000000" size="3">Nomor Barang : '.$id_barang.'<br><br>';
     echo 'Nama Barang : '.$nama_barang.'<br><br>';
@@ -59,7 +60,8 @@ while($data = mysqli_fetch_array($print))
     echo 'Qty : '.$qty.'<br><br>';
     echo 'Total : '.$total.'<br><br>';
     echo 'Stock : '.$stock.'<br><br>';
+    echo 'Status : '.$status.'<br><br>';
     echo '<center><div style="height: 30%; width: 50%;">';
-    echo "<img src='https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=Nomor Barang : $id_barang, Nama Barang : $nama_barang, Lebar : $lebar, Panjang : $panjang, Tinggi : $tinggi, Berat : $berat, Harga : $harga, Tanggal : $tgl, Tujuan : $tujuan, Qty : $qty, Total : $total, Stock : $stock&choe=UTF-8' title='Link to Google.com' />";
+    echo "<img src='https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=$id_barang&choe=UTF-8' title='Link to Google.com' />";
    
 ?>

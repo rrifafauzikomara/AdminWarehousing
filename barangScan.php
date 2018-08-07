@@ -52,7 +52,7 @@
                         <p>Barang</p>
                     </a>
                 </li>
-                <li class="active">
+                <li>
                     <a href="table.php">
                         <i class="pe-7s-search"></i>
                         <p>Search Barang</p>
@@ -64,7 +64,7 @@
                         <p>List Barang</p>
                     </a>
                 </li>
-                <li>
+                <li class="active">
                     <a href="barangScan.php">
                         <i class="pe-7s-note2"></i>
                         <p>Barang Hasil Scan</p>
@@ -78,7 +78,7 @@
 		<nav class="navbar navbar-default navbar-fixed">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <a class="navbar-brand">List Barang</a>
+                    <a class="navbar-brand">Hasil Barang</a>
                 </div>
                 <div class="collapse navbar-collapse">
                         <ul class="nav navbar-nav navbar-right">
@@ -99,32 +99,7 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="header">
-                                <fieldset>
-                                    <form class="form-horizontal form-label-left" method="post" action="" enctype="multipart/form-data">
-                                        <div class="item form-group">
-                                        <label class="control-label col-md-4" for="id_barang">No Barang <span class="required"></span></label>
-                                        <div class="col-md-4 col-sm-4 col-xs-12">
-                                        <input id="id_barang" value="" class="form-control col-md-7 col-xs-12" data-validate-length-range="4" data-validate-number="4" name="id_barang" placeholder="" required="required" type="text">
-                                        </div>
-                                        </div>
-                                        <div class="ln_solid"></div>
-                                        <div class="form-group">
-                                        <div class="col-md-6 col-md-offset-5">
-                                            <input type="submit" name="cari" value="Cari" class="btn btn-primary">
-                                            <input type="reset" value="Reset" class="btn btn-primary">
-                                        </div>
-                                        </div>
-                                </fieldset>
-                            </div>
-                        </div>
-                    </div>
-
-
-
-                    <div class="col-md-12">
-                        <div class="card">
-                            <div class="header">
-                                <h4 class="title">Data Barang</h4>
+                                <h4 class="title">Detail Barang</h4>
                             </div>
                             <div class="content table-responsive table-full-width">
                                 <table class="table table-hover table-striped">
@@ -141,15 +116,13 @@
                                         <th><div align="center">Qty</div></th>
                                         <th><div align="center">Tot. Harga</div></th>
                                         <th><div align="center">Stock</div></th>
-                                        <!-- <th><div align="center">Aksi</div></th> -->
                                     </thead>
                                     <tbody>
 
                                         <?php
                                             error_reporting(0);
                                             include('koneksi.php');
-                                            $id=$_POST['id_barang'];
-                                            $result = "SELECT * FROM tb_barang WHERE id_barang='$id'" or die(mysqli_error());
+                                            $result = "SELECT * FROM tb_barang WHERE status='True'" or die(mysqli_error());
                                             $print = mysqli_query($con, $result);
                                             while($data = mysqli_fetch_array($print)){
                                                 $id_barang=$data['id_barang'];
@@ -180,17 +153,6 @@
                                             <td><div align="center"><?php echo $qty; ?></div></td>
                                             <td><div align="center"><?php echo $total; ?></div></td>
                                             <td><div align="center"><?php echo $stock; ?></div></td>
-                                            <!-- <?php
-                                            if($stock=="Ada"){
-                                            ?>
-                                            <td><div align="center"><a href="qrcode.php?id=<?php echo $id_barang; ?>&namabarang=<?php echo $nama_barang; ?>&lebar=<?php echo $lebar; ?>&panjang=<?php echo $panjang; ?>&tinggi=<?php echo $tinggi; ?>&berat=<?php echo $berat; ?>&harga=<?php echo $harga; ?>&tujuan=<?php echo $tujuan; ?>">Cetak QR Code</a></div></td>
-                                            <?php
-                                            }
-                                            else if($status=="Kosong") {
-                                            ?>
-                                            <?php
-                                              }
-                                            ?> -->
                                         </tr>
                                     </tbody>
                                 </table>

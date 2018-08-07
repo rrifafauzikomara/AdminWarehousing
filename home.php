@@ -75,6 +75,12 @@ if (@$_SESSION['admin'] || @$_SESSION['user']) {
                         <p>List Barang</p>
                     </a>
                 </li>
+                <li>
+                    <a href="barangScan.php">
+                        <i class="pe-7s-note2"></i>
+                        <p>Barang Hasil Scan</p>
+                    </a>
+                </li>
             </ul>
     	</div>
     </div>

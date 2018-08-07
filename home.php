@@ -237,6 +237,73 @@ if (@$_SESSION['admin'] || @$_SESSION['user']) {
                             </div>
 
                         </div>
+
+                        <div class="card">
+                            <div class="content table-responsive table-full-width">
+                                <table class="table table-hover table-striped">
+                                    <thead>
+                                        <th><div align="center">No Barang</div></th>
+                                        <th><div align="center">Nama Barang</div></th>
+                                        <th><div align="center">Lebar</div></th>
+                                        <th><div align="center">Panjang</div></th>
+                                        <th><div align="center">Tinggi</div></th>
+                                        <th><div align="center">Volume Barang (Persen %)</div></th>
+                                        <th><div align="center">Volume Truck</div></th>
+                                        <th><div align="center">Persentase Volume Truck</div></th>
+                                        <!-- <th><div align="center">Aksi</div></th> -->
+                                    </thead>
+                                    <tbody>
+
+                                        <?php
+
+                                        error_reporting(0);
+                                            include('koneksi.php');
+                                            $id=$_POST['id_barang'];
+                                            $truck = 4 * 3 * 3;
+                                            $result = "SELECT * FROM tb_barang" or die(mysqli_error());
+                                            $print = mysqli_query($con, $result);
+                                            while($data = mysqli_fetch_array($print)){
+                                            $id_barang=$data['id_barang'];
+                                            $nama_barang = $data['nama_barang'];
+                                            $lebar = $data['lebar'];
+                                            $panjang = $data['panjang'];
+                                            $tinggi = $data['tinggi'];
+                                            $volume = ($data['lebar'] * $data['panjang'] * $data['tinggi']) / $truck * 100;
+
+                                        ?>
+
+                                        <tr>
+                                            <td><div align="center"><?php echo $data['id_barang']; ?></div></td>
+                                            <td><div align="center"><?php echo $data['nama_barang']; ?></div></td>
+                                            <td><div align="center"><?php echo $data['lebar']; ?></div></td>
+                                            <td><div align="center"><?php echo $data['panjang']; ?></div></td>
+                                            <td><div align="center"><?php echo $data['tinggi']; ?></div></td>
+                                            <td><div align="center"><?php echo $volume; ?></div></td>
+                                            <td><div align="center"><?php echo $truck; ?></div></td>
+                                            <td><div align="center"><?php echo 100; ?></div></td>
+                                            
+                                        <!-- <?php
+                                            if($stock=="Ada"){
+                                            ?>
+                                            <td><div align="center"><a href="qrcode.php?id=<?php echo $id_barang; ?>&namabarang=<?php echo $nama_barang; ?>&lebar=<?php echo $lebar; ?>&panjang=<?php echo $panjang; ?>&tinggi=<?php echo $tinggi; ?>&berat=<?php echo $berat; ?>&harga=<?php echo $harga; ?>&tujuan=<?php echo $tujuan; ?>">Cetak QR Code</a></div></td>
+                                            <?php
+                                            }
+                                            else if($status=="Kosong") {
+                                            ?>
+                                            <?php
+                                              }
+                                            ?> -->
+                                        </tr>
+                                        <?php
+                                        }
+                                        ?>
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+
+
                     </div>
                 </div>
 

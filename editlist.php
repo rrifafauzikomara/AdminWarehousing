@@ -46,7 +46,7 @@
     	<div class="sidebar-wrapper">
             <div class="logo">
                 <a href="home.php" class="simple-text">
-                    Auto 2000
+                    <img src="images/logoHeader.png" width="200px" height="40px"/>
                 </a>
             </div>
 

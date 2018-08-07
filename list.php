@@ -155,6 +155,7 @@ include "koneksi.php";
                                         <th><div align="center">Tanggal</div></th>
                                         <th><div align="center">Tujuan</div></th>
                                         <th><div align="center">Qty</div></th>
+                                        <th><div align="center">Tot. Harga</div></th>
                                         <th><div align="center">Stock</div></th>
                                         <!-- <th><div align="center">Aksi</div></th> -->
                                     </thead>
@@ -182,6 +183,7 @@ include "koneksi.php";
                                             $harga = $data['harga'];
                                             $tujuan = $data['tujuan'];
                                             $qty = $data['qty'];
+                                            $total = $data['harga'] * $data['qty'];
                                             $stock = $data['stock'];
 
                                         ?>
@@ -197,6 +199,7 @@ include "koneksi.php";
                                             <td><div align="center"><?php echo $data['tgl_masuk']; ?></div></td>
                                             <td><div align="center"><?php echo $data['tujuan']; ?></div></td>
                                             <td><div align="center"><?php echo $data['qty']; ?></div></td>
+                                            <td><div align="center"><?php echo $total; ?></div></td>
                                             <td><div align="center"><?php echo $data['stock']; ?></div></td>
                                             <td align="center"><a  href="editlist.php?id=<?php echo $data['id_barang']; ?>" class="btn btn-xs btn-default" title="Edit" >
                                         <i class="fa fa-edit fa-fw"></i>

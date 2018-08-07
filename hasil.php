@@ -99,13 +99,17 @@
                                 <table class="table table-hover table-striped">
                                     <thead>
                                         <th><div align="center">No Barang</div></th>
-                                    	<th><div align="center">Nama Barang</div></th>
-                                    	<th><div align="center">Lebar</div></th>
-                                    	<th><div align="center">Panjang</div></th>
-                                    	<th><div align="center">Tinggi</div></th>
+                                        <th><div align="center">Nama Barang</div></th>
+                                        <th><div align="center">Lebar</div></th>
+                                        <th><div align="center">Panjang</div></th>
+                                        <th><div align="center">Tinggi</div></th>
                                         <th><div align="center">Berat</div></th>
                                         <th><div align="center">Harga</div></th>
+                                        <th><div align="center">Tanggal</div></th>
                                         <th><div align="center">Tujuan</div></th>
+                                        <th><div align="center">Qty</div></th>
+                                        <th><div align="center">Tot. Harga</div></th>
+                                        <th><div align="center">Stock</div></th>
                                         <th><div align="center">Aksi</div></th>
                                     </thead>
                                     <tbody>
@@ -116,16 +120,19 @@
                                             $nama=$_GET['nama_barang'];
                                             $result = "SELECT * FROM tb_barang WHERE nama_barang='$nama'" or die(mysqli_error());
                                             $print = mysqli_query($con, $result);
-                                            while($row = mysqli_fetch_array($print)){
-                                                $id_barang=$row['id_barang'];
-                                                $nama_barang = $row['nama_barang'];
-                                                $lebar = $row['lebar'];
-                                                $panjang = $row['panjang'];
-                                                $tinggi = $row['tinggi'];
-                                                $berat = $row['berat'];
-                                                $harga = $row['harga'];
-                                                $tujuan = $row['tujuan'];
-                                                $stock = $row['stock'];
+                                            while($data = mysqli_fetch_array($print)){
+                                                $id_barang=$data['id_barang'];
+                                                $nama_barang = $data['nama_barang'];
+                                                $lebar = $data['lebar'];
+                                                $panjang = $data['panjang'];
+                                                $tinggi = $data['tinggi'];
+                                                $berat = $data['berat'];
+                                                $harga = $data['harga'];
+                                                $tgl = $data['tgl_masuk'];
+                                                $tujuan = $data['tujuan'];
+                                                $qty = $data['qty'];
+                                                $total = $data['harga'] * $data['qty'];
+                                                $stock = $data['stock'];
                                             }
                                         ?>
 
@@ -137,7 +144,11 @@
                                             <td><div align="center"><?php echo $tinggi; ?></div></td>
                                             <td><div align="center"><?php echo $berat; ?></div></td>
                                             <td><div align="center"><?php echo $harga; ?></div></td>
+                                            <td><div align="center"><?php echo $tgl; ?></div></td>
                                             <td><div align="center"><?php echo $tujuan; ?></div></td>
+                                            <td><div align="center"><?php echo $qty; ?></div></td>
+                                            <td><div align="center"><?php echo $total; ?></div></td>
+                                            <td><div align="center"><?php echo $stock; ?></div></td>
                                             <?php
                                             if($stock=="Ada"){
                                             ?>

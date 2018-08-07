@@ -12,6 +12,7 @@
     $harga = $_POST['harga'];
     $tujuan = $_POST['tujuan'];
     $qty = $_POST['qty'];
+    $total = $harga * $qty; 
     $stock = $_POST['stock'];
 
 	
@@ -22,7 +23,7 @@
 	 	die(json_encode($response));
 	 } else {
 		
-		$query = mysqli_query($con, " UPDATE tb_barang SET nama_barang = '$nama_barang',lebar = '$lebar',panjang = '$panjang',tinggi = '$tinggi',berat = '$berat',harga = '$harga',tujuan = '$tujuan',qty = '$qty',stock = '$stock' WHERE id_barang = '$id'");
+		$query = mysqli_query($con, " UPDATE tb_barang SET nama_barang = '$nama_barang',lebar = '$lebar',panjang = '$panjang',tinggi = '$tinggi',berat = '$berat',harga = '$harga',tujuan = '$tujuan',qty = '$qty',total = '$total',stock = '$stock' WHERE id_barang = '$id'");
 	
 		if ($query){
 			$response = new usr();

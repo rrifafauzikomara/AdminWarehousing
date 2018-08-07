@@ -36,6 +36,51 @@ if (@$_SESSION['admin'] || @$_SESSION['user']) {
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
     <link href="assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
 
+    <script src="js1/jquery.min.js" type="text/javascript"></script>
+    <script src="js1/highcharts.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        var chart1; // globally available
+    $(document).ready(function() {
+          chart1 = new Highcharts.Chart({
+             chart: {
+                renderTo: 'container',
+                type: 'column'
+             },   
+             title: {
+                text: 'Grafik Jumlah Barang '
+             },
+             xAxis: {
+                categories: ['Nama Barang']
+             },
+             yAxis: {
+                title: {
+                   text: 'Jumlah Barang'
+                }
+             },
+                  series:             
+                [
+                <?php 
+                include('koneksi.php');
+               $sql   = "SELECT nama_barang  FROM tb_barang";
+                $query = mysqli_query($con, $sql)  or die(mysqli_error());
+                while( $ret = mysqli_fetch_array( $query ) ){
+                    $nama_barang=$ret['nama_barang'];                     
+                     $sql_jumlah   = "SELECT qty FROM tb_barang WHERE nama_barang='$nama_barang'";        
+                     $query_jumlah = mysqli_query($con, $sql_jumlah) or die(mysql_error());
+                     while( $data = mysqli_fetch_array( $query_jumlah ) ){
+                        $qty = $data['qty'];                 
+                      }             
+                      ?>
+                      {
+                          name: '<?php echo $nama_barang; ?>',
+                          data: [<?php echo $qty; ?>]
+                      },
+                      <?php } ?>
+                ]
+          });
+       });  
+    </script>
+
 </head>
 <body>
 
@@ -118,6 +163,8 @@ if (@$_SESSION['admin'] || @$_SESSION['user']) {
                                         <h1>Selamat datang!</h1>
                                         <p>Auto 2000</p>
                                     </div>
+
+                                    <div id='container'></div>
                                     
                                     <div class="col-xs-12 col-sm-12 col-md-4">
                                         <div class="panel panel-default">

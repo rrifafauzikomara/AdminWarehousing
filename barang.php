@@ -1,13 +1,13 @@
-<!doctype html>
+octype html>
 <html lang="en">
 <head>
-	<meta charset="utf-8" />
-	<!-- <link rel="icon" type="image/png" href="assets/img/favicon.ico"> -->
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta charset="utf-8" />
+    <!-- <link rel="icon" type="image/png" href="assets/img/favicon.ico"> -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-	<title>Auto 2000</title>
+    <title>Auto 2000</title>
 
-	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
 
 
@@ -37,13 +37,11 @@
     <div class="sidebar" data-color="purple" data-image="assets/img/sidebar-5.jpg">
 
     <!--
-
         Tip 1: you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple"
         Tip 2: you can also add an image using data-image tag
-
     -->
 
-    	<div class="sidebar-wrapper">
+        <div class="sidebar-wrapper">
             <div class="logo">
                 <a href="home.php" class="simple-text">
                     Auto 2000
@@ -76,7 +74,7 @@
                     </a>
                 </li>
             </ul>
-    	</div>
+        </div>
     </div>
 
     <div class="main-panel">
@@ -92,7 +90,7 @@
                                 <p>Log out</p>
                             </a>
                         </li>
-						<li class="separator hidden-lg"></li>
+                        <li class="separator hidden-lg"></li>
                     </ul>
                 </div>
             </div>
@@ -181,7 +179,7 @@
                 </div>
 
                 <?php
-                		include "koneksi.php";
+                        include "koneksi.php";
                         $id_barang = @$_POST['id_barang'];
                         $nama_barang = @$_POST['nama_barang'];
                         $lebar = @$_POST['lebar'];
@@ -193,15 +191,13 @@
                         $tujuan = @$_POST['tujuan'];
                         $tambah = @$_POST['tambah'];
                         $stock = @$_POST['stock'];
-
                         if ($tambah) {
                             if ($nama_barang == "" || $lebar == "" || $panjang == "" || $tinggi == "" || $berat == "" || $harga == "" || $tgl_masuk == "" || $tujuan == "") {
                                     ?> <script type="text/javascript">alert("Inputan tidak boleh kosong !!");</script> <?php
                             } else {
-                                $sql_tambah = "insert into tb_barang values('', '$nama_barang', '$lebar', '$panjang', '$tinggi', '$berat', '$harga', '$tgl_masuk', '$tujuan', '0', 'Ada')" or die (mysqli_error());
+                                $sql_tambah = "insert into tb_barang values('', '$nama_barang', '$lebar', '$panjang', '$tinggi', '$berat', '$harga', '$tgl_masuk', '$tujuan', '0', '0', 'Ada', 'False')" or die (mysqli_error());
                                 $tmb_barang = mysqli_query($con, $sql_tambah);
                                 ?> <script type="text/javascript">alert("Tambah Barang Berhasil");</script> <?php
-
                             }
                         }
                         
@@ -223,10 +219,10 @@
 
     <!--   Core JS Files   -->
     <script src="assets/js/jquery.3.2.1.min.js" type="text/javascript"></script>
-	<script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
 
-	<!--  Charts Plugin -->
-	<script src="assets/js/chartist.min.js"></script>
+    <!--  Charts Plugin -->
+    <script src="assets/js/chartist.min.js"></script>
 
     <!--  Notifications Plugin    -->
     <script src="assets/js/bootstrap-notify.js"></script>
@@ -235,9 +231,9 @@
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
 
     <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
-	<script src="assets/js/light-bootstrap-dashboard.js?v=1.4.0"></script>
+    <script src="assets/js/light-bootstrap-dashboard.js?v=1.4.0"></script>
 
-	<!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
-	<script src="assets/js/demo.js"></script>
+    <!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
+    <script src="assets/js/demo.js"></script>
 
 </html>

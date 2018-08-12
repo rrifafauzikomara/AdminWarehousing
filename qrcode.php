@@ -24,7 +24,22 @@ function Clickheretoprint()
 <strong><font color="#000000" size="5">Silahkan Print/Cetak QR Code Anda</font></strong><br>
 <table width="1350" border="2" cellpadding="4" cellspacing="5 " bgcolor="#FFFFFF"></table>
 <strong><font color="#000000" size="5">Rincian Data Barang Anda</font></strong><br>
-<table width="1350" border="2" cellpadding="4" cellspacing="5 " bgcolor="#FFFFFF"></table><br>
+<table width="1350" border="2" cellpadding="4" cellspacing="5 " bgcolor="#FFFFFF"><br>
+
+<tr>
+  <th><div align="center">Id Barang</div></th>
+  <th><div align="center">Nama Barang</div></th>
+  <th><div align="center">Lebar</div></th>
+  <th><div align="center">Panjang</div></th>
+  <th><div align="center">Tinggi</div></th>
+  <th><div align="center">Berat</div></th>
+  <th><div align="center">Harga</div></th>
+  <th><div align="center">Tanggal</div></th>
+  <th><div align="center">Tujuan</div></th>
+  <th><div align="center">Qty</div></th>
+  <th><div align="center">Total</div></th>
+  <th><div align="center">QR Code</div></th>
+</tr>
 
 <?php
 include('koneksi.php');
@@ -45,23 +60,24 @@ while($data = mysqli_fetch_array($print))
     $tujuan = $data['tujuan'];
     $qty = $data['qty'];
     $total = $data['harga'] * $data['qty'];
-    $stock = $data['stock'];
     $status = $data['status'];
 	}
-    echo '<font color=#"000000" size="3">Nomor Barang : '.$id_barang.'<br><br>';
-    echo 'Nama Barang : '.$nama_barang.'<br><br>';
-    echo 'Lebar : '.$lebar.'<br><br>';
-    echo 'Panjang : '.$panjang.'<br><br>';
-    echo 'Tinggi : '.$tinggi.'<br><br>';
-	  echo 'Berat : '.$berat.'<br><br>';
-    echo 'Harga : '.$harga.'<br><br>';
-    echo 'Tanggal : '.$tgl.'<br><br>';
-    echo 'Tujuan : '.$tujuan.'<br><br>';
-    echo 'Qty : '.$qty.'<br><br>';
-    echo 'Total : '.$total.'<br><br>';
-    echo 'Stock : '.$stock.'<br><br>';
-    echo 'Status : '.$status.'<br><br>';
-    echo '<center><div style="height: 30%; width: 50%;">';
-    echo "<img src='https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=$id_barang&choe=UTF-8' title='Link to Google.com' />";
-   
+
 ?>
+
+<tr>
+  <td><div align="center"><?php echo $id_barang; ?></div></td>
+  <td><div align="center"><?php echo $nama_barang; ?></div></td>
+  <td><div align="center"><?php echo $lebar; ?></div></td>
+  <td><div align="center"><?php echo $panjang; ?></div></td>
+  <td><div align="center"><?php echo $tinggi; ?></div></td>
+  <td><div align="center"><?php echo $berat; ?></div></td>
+  <td><div align="center"><?php echo $harga; ?></div></td>
+  <td><div align="center"><?php echo $tgl; ?></div></td>
+  <td><div align="center"><?php echo $tujuan; ?></div></td>
+  <td><div align="center"><?php echo $qty; ?></div></td>
+  <td><div align="center"><?php echo $total; ?></div></td>
+  <td><div align="center"><?php echo "<img src='https://chart.googleapis.com/chart?chs=100x100&cht=qr&chl=$id_barang&choe=UTF-8' title='Link to Google.com' />"; ?></div></td>
+</tr>
+
+</table>

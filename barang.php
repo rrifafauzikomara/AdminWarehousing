@@ -190,12 +190,11 @@ octype html>
                         $tgl_masuk = @$_POST['tgl_masuk'];
                         $tujuan = @$_POST['tujuan'];
                         $tambah = @$_POST['tambah'];
-                        $stock = @$_POST['stock'];
                         if ($tambah) {
                             if ($nama_barang == "" || $lebar == "" || $panjang == "" || $tinggi == "" || $berat == "" || $harga == "" || $tgl_masuk == "" || $tujuan == "") {
                                     ?> <script type="text/javascript">alert("Inputan tidak boleh kosong !!");</script> <?php
                             } else {
-                                $sql_tambah = "insert into tb_barang values('', '$nama_barang', '$lebar', '$panjang', '$tinggi', '$berat', '$harga', '$tgl_masuk', '$tujuan', '0', '0', 'Ada', 'False')" or die (mysqli_error());
+                                $sql_tambah = "insert into tb_barang values('', '$nama_barang', '$lebar', '$panjang', '$tinggi', '$berat', '$harga', '$tgl_masuk', '$tujuan', '0', '0', 'False')" or die (mysqli_error());
                                 $tmb_barang = mysqli_query($con, $sql_tambah);
                                 ?> <script type="text/javascript">alert("Tambah Barang Berhasil");</script> <?php
                             }

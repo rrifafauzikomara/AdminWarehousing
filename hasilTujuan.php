@@ -61,13 +61,13 @@ include "koneksi.php";
                         <p>Search Barang</p>
                     </a>
                 </li>
-                <li class="active">
+                <li>
                     <a href="list.php">
                         <i class="pe-7s-note2"></i>
                         <p>List Barang</p>
                     </a>
                 </li>
-                <li>
+                <li class="active">
                     <a href="barangScan.php">
                         <i class="pe-7s-note2"></i>
                         <p>Barang Hasil Scan</p>
@@ -81,7 +81,7 @@ include "koneksi.php";
 		<nav class="navbar navbar-default navbar-fixed">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <a class="navbar-brand">List Barang</a>
+                    <a class="navbar-brand">Hasil Barang</a>
                 </div>
                 <div class="collapse navbar-collapse">
                         <ul class="nav navbar-nav navbar-right">
@@ -102,51 +102,7 @@ include "koneksi.php";
                     <div class="col-md-12">
                         <div class="card">
                             <div class="header">
-                                <fieldset>
-                                    <form class="form-horizontal form-label-left" method="post" action="" enctype="multipart/form-data">
-                                        <div class="item form-group">
-                                            <label class="control-label col-md-4" for="tgl_masuk">Tanggal Masuk<span class="required"></span></label>
-                                            <div class="col-md-4 col-sm-4 col-xs-12">
-                                                <input id="tgl_masuk" class="form-control col-md-7 col-xs-12" name="tgl_masuk" type="date" value="<?php echo date("d-m-Y");?>" required="required">
-                                            </div>
-                                        </div>
-                                        <div class="ln_solid"></div>
-                                        <div class="form-group">
-                                        <div class="col-md-6 col-md-offset-5">
-                                            <input type="submit" name="cari" value="Cari" class="btn btn-primary">
-                                            <input type="reset" value="Reset" class="btn btn-primary">
-                                        </div>
-                                        </div>
-                                </fieldset>
-                            </div>
-                        </div>
-                    </div>
-
-                    <?php
-                        $id_barang = @$_POST['id_barang'];
-                        $nama_barang = @$_POST['nama_barang'];
-                        $lebar = @$_POST['lebar'];
-                        $panjang = @$_POST['panjang'];
-                        $tinggi = @$_POST['tinggi'];
-                        $berat = @$_POST['berat'];
-                        $harga = @$_POST['harga'];
-                        $tujuan = @$_POST['tujuan'];
-                        
-                        $id_barang = @$_GET['id_barang'];
-                        $aksi = @$_GET['aksi'];
-                        if(($aksi<>"") and ($id_barang<>"")){
-                             $sql_delete = "delete from tb_barang where id_barang='$id_barang'" or die (mysqli_error());
-                             $delete = mysqli_query($con, $sql_delete);
-                             echo "<script type=text/javascript>
-                                window.location.href='http://localhost/pergudangan/list.php';
-                                </script>" ;
-                        }
-                        ?>
-
-                    <div class="col-md-12">
-                        <div class="card">
-                            <div class="header">
-                                <h4 class="title">List Barang</h4>
+                                <h4 class="title">Detail Barang</h4>
                             </div>
                             <div class="content table-responsive table-full-width">
                                 <table class="table table-hover table-striped">
@@ -162,21 +118,15 @@ include "koneksi.php";
                                         <th><div align="center">Tujuan</div></th>
                                         <th><div align="center">Qty</div></th>
                                         <th><div align="center">Tot. Harga</div></th>
-                                        <th><div align="center">Aksi</div></th>
+                                        <!-- <th><div align="center">Aksi</div></th> -->
                                     </thead>
                                     <tbody>
 
                                         <?php
-                                        if (isset($_POST['tgl_masuk'])) {
-                                            $tgl=$_POST['tgl_masuk'];
-                                            $result = "SELECT * FROM tb_barang WHERE tgl_masuk='$tgl'" or die(mysqli_error());
+                                            $tujuan=$_GET['tujuan'];
+                                            $result = "SELECT * FROM tb_barang WHERE tujuan='$tujuan' AND status='True'" or die(mysqli_error());
                                             $print = mysqli_query($con, $result);
-                                        } else {
-                                            $sql = "SELECT * FROM tb_barang" or die (mysql_error());
-                                            $print = mysqli_query($con, $sql);
                                         
-                                        }
-
                                         while($data = mysqli_fetch_array($print)) {
                                             $id_barang=$data['id_barang'];
                                             $nama_barang = $data['nama_barang'];
@@ -188,7 +138,6 @@ include "koneksi.php";
                                             $tujuan = $data['tujuan'];
                                             $qty = $data['qty'];
                                             $total = $data['harga'] * $data['qty'];
-
                                         ?>
 
                                         <tr>
@@ -203,13 +152,17 @@ include "koneksi.php";
                                             <td><div align="center"><?php echo $data['tujuan']; ?></div></td>
                                             <td><div align="center"><?php echo $data['qty']; ?></div></td>
                                             <td><div align="center"><?php echo $total; ?></div></td>
-                                            <td align="center"><a  href="editlist.php?id=<?php echo $data['id_barang']; ?>" class="btn btn-xs btn-default" title="Edit" >
-                                        <i class="fa fa-edit fa-fw"></i>
-                                    </a>
-                                    <a onclick="return confirm('Anda yakin akan menghapus');" href="list.php?id_barang=<?php echo $data['id_barang']; ?>&aksi=hapus" class="btn btn-xs btn-default" title="Hapus">
-                                        <i class="fa fa-times fa-fw"></i>
-                                        </a>
-                                        </td>
+                                            <!-- <?php
+                                            if($status=="True"){
+                                            ?>
+                                            <td><div align="center"><a href="qrcode.php?id=<?php echo $id_barang; ?>&namabarang=<?php echo $nama_barang; ?>&lebar=<?php echo $lebar; ?>&panjang=<?php echo $panjang; ?>&tinggi=<?php echo $tinggi; ?>&berat=<?php echo $berat; ?>&harga=<?php echo $harga; ?>&tujuan=<?php echo $tujuan; ?>">Cetak QR Code</a></div></td>
+                                            <?php
+                                            }
+                                            else if($status=="False") {
+                                            ?>
+                                            <?php
+                                              }
+                                            ?> -->
                                         </tr>
                                         <?php
 			                            }

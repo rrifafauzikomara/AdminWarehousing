@@ -59,8 +59,7 @@ if (@$_SESSION['admin'] || @$_SESSION['user']) {
              },
                   series:             
                 [
-                <?php 
-                include('koneksi.php');
+            <?php
                $sql   = "SELECT nama_barang  FROM tb_barang";
                 $query = mysqli_query($con, $sql)  or die(mysqli_error());
                 while( $ret = mysqli_fetch_array( $query ) ){

@@ -163,7 +163,6 @@
                                                 $tujuan = $data['tujuan'];
                                                 $qty = $data['qty'];
                                                 $total = $data['harga'] * $data['qty'];
-                                                $stock = $data['stock'];
                                             }
                                         ?>
 
@@ -179,18 +178,6 @@
                                             <td><div align="center"><?php echo $tujuan; ?></div></td>
                                             <td><div align="center"><?php echo $qty; ?></div></td>
                                             <td><div align="center"><?php echo $total; ?></div></td>
-                                            <td><div align="center"><?php echo $stock; ?></div></td>
-                                            <!-- <?php
-                                            if($stock=="Ada"){
-                                            ?>
-                                            <td><div align="center"><a href="qrcode.php?id=<?php echo $id_barang; ?>&namabarang=<?php echo $nama_barang; ?>&lebar=<?php echo $lebar; ?>&panjang=<?php echo $panjang; ?>&tinggi=<?php echo $tinggi; ?>&berat=<?php echo $berat; ?>&harga=<?php echo $harga; ?>&tujuan=<?php echo $tujuan; ?>">Cetak QR Code</a></div></td>
-                                            <?php
-                                            }
-                                            else if($status=="Kosong") {
-                                            ?>
-                                            <?php
-                                              }
-                                            ?> -->
                                         </tr>
                                     </tbody>
                                 </table>

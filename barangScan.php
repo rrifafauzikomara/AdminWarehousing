@@ -1,3 +1,6 @@
+<?php
+    include "koneksi.php";
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -97,6 +100,46 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-12">
+
+                        <div class="card">
+                            
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-12 col-md-12"><br>
+                                    <div class="col-xs-12 col-sm-12 col-md-4">
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                <h3 class="panel-title">Tujuan</h3>
+                                            </div>
+                                            <div class="panel-body">
+                                                <ol>
+                                                    <li><a href="hasilTujuan.php?tujuan=<?php echo "Paster" ?>">Paster</a></li>
+                                                </ol>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xs-12 col-sm-12 col-md-4">
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                <h3 class="panel-title">Tujuan</h3>
+                                            </div>
+                                            <div class="panel-body">
+                                                <ol>
+                                                    <?php
+                                                        $sql = "SELECT * FROM tb_barang" or die(mysqli_error());
+                                                        $print = mysqli_query($con, $sql);
+                                                    ?>
+                                                    <li><a href="hasilTujuan.php?tujuan=<?php echo "Cimahi" ?>">Cimahi</a></li>
+                                                </ol>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+
                         <div class="card">
                             <div class="header">
                                 <h4 class="title">Detail Barang</h4>
@@ -115,45 +158,42 @@
                                         <th><div align="center">Tujuan</div></th>
                                         <th><div align="center">Qty</div></th>
                                         <th><div align="center">Tot. Harga</div></th>
-                                        <th><div align="center">Stock</div></th>
                                     </thead>
                                     <tbody>
 
                                         <?php
-                                            error_reporting(0);
-                                            include('koneksi.php');
                                             $result = "SELECT * FROM tb_barang WHERE status='True'" or die(mysqli_error());
                                             $print = mysqli_query($con, $result);
-                                            while($data = mysqli_fetch_array($print)){
-                                                $id_barang=$data['id_barang'];
-                                                $nama_barang = $data['nama_barang'];
-                                                $lebar = $data['lebar'];
-                                                $panjang = $data['panjang'];
-                                                $tinggi = $data['tinggi'];
-                                                $berat = $data['berat'];
-                                                $harga = $data['harga'];
-                                                $tgl = $data['tgl_masuk'];
-                                                $tujuan = $data['tujuan'];
-                                                $qty = $data['qty'];
-                                                $total = $data['harga'] * $data['qty'];
-                                                $stock = $data['stock'];
-                                            }
+                                        
+                                        while($data = mysqli_fetch_array($print)) {
+                                            $id_barang=$data['id_barang'];
+                                            $nama_barang = $data['nama_barang'];
+                                            $lebar = $data['lebar'];
+                                            $panjang = $data['panjang'];
+                                            $tinggi = $data['tinggi'];
+                                            $berat = $data['berat'];
+                                            $harga = $data['harga'];
+                                            $tujuan = $data['tujuan'];
+                                            $qty = $data['qty'];
+                                            $total = $data['harga'] * $data['qty'];
                                         ?>
 
                                         <tr>
-                                            <td><div align="center"><?php echo $id_barang; ?></div></td>
-                                            <td><div align="center"><?php echo $nama_barang; ?></div></td>
-                                            <td><div align="center"><?php echo $lebar; ?></div></td>
-                                            <td><div align="center"><?php echo $panjang; ?></div></td>
-                                            <td><div align="center"><?php echo $tinggi; ?></div></td>
-                                            <td><div align="center"><?php echo $berat; ?></div></td>
-                                            <td><div align="center"><?php echo $harga; ?></div></td>
-                                            <td><div align="center"><?php echo $tgl; ?></div></td>
-                                            <td><div align="center"><?php echo $tujuan; ?></div></td>
-                                            <td><div align="center"><?php echo $qty; ?></div></td>
+                                            <td><div align="center"><?php echo $data['id_barang']; ?></div></td>
+                                            <td><div align="center"><?php echo $data['nama_barang']; ?></div></td>
+                                            <td><div align="center"><?php echo $data['lebar']; ?></div></td>
+                                            <td><div align="center"><?php echo $data['panjang']; ?></div></td>
+                                            <td><div align="center"><?php echo $data['tinggi']; ?></div></td>
+                                            <td><div align="center"><?php echo $data['berat']; ?></div></td>
+                                            <td><div align="center"><?php echo $data['harga']; ?></div></td>
+                                            <td><div align="center"><?php echo $data['tgl_masuk']; ?></div></td>
+                                            <td><div align="center"><?php echo $data['tujuan']; ?></div></td>
+                                            <td><div align="center"><?php echo $data['qty']; ?></div></td>
                                             <td><div align="center"><?php echo $total; ?></div></td>
-                                            <td><div align="center"><?php echo $stock; ?></div></td>
                                         </tr>
+                                        <?php
+                                        }
+                                        ?>
                                     </tbody>
                                 </table>
 

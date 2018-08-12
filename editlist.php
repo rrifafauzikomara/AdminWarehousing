@@ -122,15 +122,15 @@
 			                        $harga = @$_POST['harga'];
 			                        $tujuan = @$_POST['tujuan'];
                                     $qty = @$_POST['qty'];
-			                        $stock = @$_POST['stock'];
+                                    $total = $harga * $qty;
 
                         			$tambah = @$_POST['edit'];
 
 			                        if ($tambah) {
-			                            if ($id_barang == "" || $nama_barang == "" || $lebar == "" || $panjang == "" || $tinggi == "" || $berat == "" || $harga == "" || $tujuan == "" || $qty == "" || $stock == "") {
+			                            if ($id_barang == "" || $nama_barang == "" || $lebar == "" || $panjang == "" || $tinggi == "" || $berat == "" || $harga == "" || $tujuan == "" || $qty == "") {
 			                                    ?> <script type="text/javascript">alert("Inputan tidak boleh kosong !!");</script> <?php
 			                            } else {
-			                                $sql_tambah = "update tb_barang set nama_barang='$nama_barang', lebar='$lebar', panjang='$panjang', tinggi='$tinggi', berat='$berat', harga='$harga', tujuan='$tujuan', qty='$qty', stock='$stock' where id_barang='$id_barang'" or die (mysqli_error());
+			                                $sql_tambah = "update tb_barang set nama_barang='$nama_barang', lebar='$lebar', panjang='$panjang', tinggi='$tinggi', berat='$berat', harga='$harga', tujuan='$tujuan', qty='$qty', total='$total' where id_barang='$id_barang'" or die (mysqli_error());
 			                                $register = mysqli_query($con, $sql_tambah);
 			                                
 			                                echo "<script type=text/javascript>
@@ -202,15 +202,6 @@
                                             <div class="col-md-4 col-sm-4 col-xs-12">
                                                 <input id="qty" min="1" value="<?php echo $data['qty']; ?>" class="form-control col-md-7 col-xs-12" data-validate-length-range="4" data-validate-number="4" name="qty" placeholder="Masukan Username" required="required" type="number">
                                             </div>
-                                        </div>
-                                        <div class="item form-group">
-                                        <label for="stock" class="control-label col-md-3">Stock</label>
-                                        <div class="col-md-4 col-sm-4 col-xs-12">
-                                        <select class="form-control" name='stock' value="<?php echo $data['stock']; ?>" requered="requered">
-                                                    <option>Ada</option>
-                                                    <option>Kosong</option>
-                                        </select>
-                                        </div>
                                         </div>
                                         <div class="ln_solid"></div>
                                         <div class="form-group">

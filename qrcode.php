@@ -38,7 +38,6 @@ function Clickheretoprint()
   <th><div align="center">Tujuan</div></th>
   <th><div align="center">Qty</div></th>
   <th><div align="center">Total</div></th>
-  <th><div align="center">QR Code</div></th>
 </tr>
 
 <?php
@@ -77,7 +76,9 @@ while($data = mysqli_fetch_array($print))
   <td><div align="center"><?php echo $tujuan; ?></div></td>
   <td><div align="center"><?php echo $qty; ?></div></td>
   <td><div align="center"><?php echo $total; ?></div></td>
-  <td><div align="center"><?php echo "<img src='https://chart.googleapis.com/chart?chs=100x100&cht=qr&chl=$id_barang&choe=UTF-8' title='Link to Google.com' />"; ?></div></td>
 </tr>
-
 </table>
+</br>
+
+<?php echo "QR Code" ?></br>
+<?php echo "<img src='https://chart.googleapis.com/chart?chs=250x250&cht=qr&chl=$id_barang&choe=UTF-8' title='Link to Google.com' />";?>

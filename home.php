@@ -246,8 +246,9 @@ if (@$_SESSION['admin'] || @$_SESSION['user']) {
                                         <th><div align="center">Lebar</div></th>
                                         <th><div align="center">Panjang</div></th>
                                         <th><div align="center">Tinggi</div></th>
-                                        <th><div align="center">Volume Barang (Persen %)</div></th>
+                                        <th><div align="center">Volume Barang</div></th>
                                         <th><div align="center">Volume Truck</div></th>
+                                        <th><div align="center">Sisa Volume Truck</div></th>
                                         <th><div align="center">Persentase Volume Truck</div></th>
                                         <!-- <th><div align="center">Aksi</div></th> -->
                                     </thead>
@@ -267,19 +268,21 @@ if (@$_SESSION['admin'] || @$_SESSION['user']) {
                                             $lebar = $data['lebar'];
                                             $panjang = $data['panjang'];
                                             $tinggi = $data['tinggi'];
-                                            $volume = ($data['lebar'] * $data['panjang'] * $data['tinggi']) / $truck * 100;
+                                            $volume = ($data['lebar'] * $data['panjang'] * $data['tinggi']) / $truck;
+                                            $sisa = 100 - $volume;
 
                                         ?>
 
                                         <tr>
                                             <td><div align="center"><?php echo $data['id_barang']; ?></div></td>
                                             <td><div align="center"><?php echo $data['nama_barang']; ?></div></td>
-                                            <td><div align="center"><?php echo $data['lebar']; ?></div></td>
-                                            <td><div align="center"><?php echo $data['panjang']; ?></div></td>
-                                            <td><div align="center"><?php echo $data['tinggi']; ?></div></td>
-                                            <td><div align="center"><?php echo $volume; ?></div></td>
-                                            <td><div align="center"><?php echo $truck; ?></div></td>
-                                            <td><div align="center"><?php echo 100; ?></div></td>
+                                            <td><div align="center"><?php echo $data['lebar'];?> cm</div></td>
+                                            <td><div align="center"><?php echo $data['panjang'];?> cm</div></td>
+                                            <td><div align="center"><?php echo $data['tinggi'];?> cm</div></td>
+                                            <td><div align="center"><?php echo number_format((float)$volume);?> %</div></td>
+                                            <td><div align="center"><?php echo $truck;?> m<sup>3</sup></div></td>
+                                            <td><div align="center"><?php echo number_format((float)$sisa);?> %</div></td>
+                                            <td><div align="center"><?php echo 100; ?> %</div></td>
                                             
                                         <!-- <?php
                                             if($stock=="Ada"){

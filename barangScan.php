@@ -112,7 +112,7 @@
                                             </div>
                                             <div class="panel-body">
                                                 <ol>
-                                                    <li><a href="hasilTujuan.php?tujuan=<?php echo "Paster" ?>">Paster</a></li>
+                                                    <li><a href="hasilTujuan.php?tujuan=<?php echo "Paster" ?>">Truk Paster</a></li>
                                                 </ol>
                                             </div>
                                         </div>
@@ -129,7 +129,7 @@
                                                         $sql = "SELECT * FROM tb_barang" or die(mysqli_error());
                                                         $print = mysqli_query($con, $sql);
                                                     ?>
-                                                    <li><a href="hasilTujuan.php?tujuan=<?php echo "Cimahi" ?>">Cimahi</a></li>
+                                                    <li><a href="hasilTujuan.php?tujuan=<?php echo "Cimahi" ?>">Truk Cimahi</a></li>
                                                 </ol>
                                             </div>
                                         </div>
@@ -158,6 +158,7 @@
                                         <th><div align="center">Tujuan</div></th>
                                         <th><div align="center">Qty</div></th>
                                         <th><div align="center">Tot. Harga</div></th>
+                                        <th><div align="center">Sisa Volume Truck</div></th>
                                     </thead>
                                     <tbody>
 
@@ -176,20 +177,24 @@
                                             $tujuan = $data['tujuan'];
                                             $qty = $data['qty'];
                                             $total = $data['harga'] * $data['qty'];
+                                            $truck = 4 * 3 * 3;
+                                            $volume = (($data['lebar'] * $data['panjang'] * $data['tinggi']) / $truck) * $qty;
+                                            $sisa = 100 - $volume;
                                         ?>
 
                                         <tr>
                                             <td><div align="center"><?php echo $data['id_barang']; ?></div></td>
                                             <td><div align="center"><?php echo $data['nama_barang']; ?></div></td>
-                                            <td><div align="center"><?php echo $data['lebar']; ?></div></td>
-                                            <td><div align="center"><?php echo $data['panjang']; ?></div></td>
-                                            <td><div align="center"><?php echo $data['tinggi']; ?></div></td>
-                                            <td><div align="center"><?php echo $data['berat']; ?></div></td>
-                                            <td><div align="center"><?php echo $data['harga']; ?></div></td>
+                                            <td><div align="center"><?php echo $data['lebar']; ?> cm</div></td>
+                                            <td><div align="center"><?php echo $data['panjang']; ?> cm</div></td>
+                                            <td><div align="center"><?php echo $data['tinggi']; ?> cm</div></td>
+                                            <td><div align="center"><?php echo $data['berat']; ?> kg</div></td>
+                                            <td><div align="center">Rp <?php echo $data['harga']; ?></div></td>
                                             <td><div align="center"><?php echo $data['tgl_masuk']; ?></div></td>
                                             <td><div align="center"><?php echo $data['tujuan']; ?></div></td>
                                             <td><div align="center"><?php echo $data['qty']; ?></div></td>
-                                            <td><div align="center"><?php echo $total; ?></div></td>
+                                            <td><div align="center">Rp <?php echo $total; ?></div></td>
+                                            <td><div align="center"><?php echo number_format((float)$sisa);?> %</div></td>
                                         </tr>
                                         <?php
                                         }

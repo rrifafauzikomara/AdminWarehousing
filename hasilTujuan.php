@@ -143,15 +143,15 @@ include "koneksi.php";
                                         <tr>
                                             <td><div align="center"><?php echo $data['id_barang']; ?></div></td>
                                             <td><div align="center"><?php echo $data['nama_barang']; ?></div></td>
-                                            <td><div align="center"><?php echo $data['lebar']; ?></div></td>
-                                            <td><div align="center"><?php echo $data['panjang']; ?></div></td>
-                                            <td><div align="center"><?php echo $data['tinggi']; ?></div></td>
-                                            <td><div align="center"><?php echo $data['berat']; ?></div></td>
-                                            <td><div align="center"><?php echo $data['harga']; ?></div></td>
+                                            <td><div align="center"><?php echo $data['lebar']; ?> cm</div></td>
+                                            <td><div align="center"><?php echo $data['panjang']; ?> cm</div></td>
+                                            <td><div align="center"><?php echo $data['tinggi']; ?> cm</div></td>
+                                            <td><div align="center"><?php echo $data['berat']; ?> kg</div></td>
+                                            <td><div align="center">Rp <?php echo $data['harga']; ?></div></td>
                                             <td><div align="center"><?php echo $data['tgl_masuk']; ?></div></td>
                                             <td><div align="center"><?php echo $data['tujuan']; ?></div></td>
                                             <td><div align="center"><?php echo $data['qty']; ?></div></td>
-                                            <td><div align="center"><?php echo $total; ?></div></td>
+                                            <td><div align="center">Rp <?php echo $total; ?></div></td>
                                             <!-- <?php
                                             if($status=="True"){
                                             ?>

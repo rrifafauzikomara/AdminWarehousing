@@ -1,3 +1,6 @@
+<?php
+include "koneksi.php";
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -140,17 +143,20 @@
                                         <th><div align="center">Tujuan</div></th>
                                         <th><div align="center">Qty</div></th>
                                         <th><div align="center">Tot. Harga</div></th>
-                                        <th><div align="center">Stock</div></th>
-                                        <!-- <th><div align="center">Aksi</div></th> -->
                                     </thead>
                                     <tbody>
-
+                                        
                                         <?php
-                                            error_reporting(0);
-                                            include('koneksi.php');
+                                        if (isset($_POST['id_barang'])) {
                                             $id=$_POST['id_barang'];
                                             $result = "SELECT * FROM tb_barang WHERE id_barang='$id'" or die(mysqli_error());
                                             $print = mysqli_query($con, $result);
+                                        } else {
+                                            $sql = "SELECT * FROM tb_barang" or die (mysql_error());
+                                            $print = mysqli_query($con, $sql);
+                                        
+                                        }
+
                                             while($data = mysqli_fetch_array($print)){
                                                 $id_barang=$data['id_barang'];
                                                 $nama_barang = $data['nama_barang'];
@@ -163,22 +169,25 @@
                                                 $tujuan = $data['tujuan'];
                                                 $qty = $data['qty'];
                                                 $total = $data['harga'] * $data['qty'];
-                                            }
+                                            
                                         ?>
 
                                         <tr>
                                             <td><div align="center"><?php echo $id_barang; ?></div></td>
                                             <td><div align="center"><?php echo $nama_barang; ?></div></td>
-                                            <td><div align="center"><?php echo $lebar; ?></div></td>
-                                            <td><div align="center"><?php echo $panjang; ?></div></td>
-                                            <td><div align="center"><?php echo $tinggi; ?></div></td>
-                                            <td><div align="center"><?php echo $berat; ?></div></td>
-                                            <td><div align="center"><?php echo $harga; ?></div></td>
+                                            <td><div align="center"><?php echo $lebar; ?> cm</div></td>
+                                            <td><div align="center"><?php echo $panjang; ?> cm</div></td>
+                                            <td><div align="center"><?php echo $tinggi; ?> cm</div></td>
+                                            <td><div align="center"><?php echo $berat; ?> kg</div></td>
+                                            <td><div align="center">Rp <?php echo $harga; ?></div></td>
                                             <td><div align="center"><?php echo $tgl; ?></div></td>
                                             <td><div align="center"><?php echo $tujuan; ?></div></td>
                                             <td><div align="center"><?php echo $qty; ?></div></td>
-                                            <td><div align="center"><?php echo $total; ?></div></td>
+                                            <td><div align="center">Rp <?php echo $total; ?></div></td>
                                         </tr>
+                                        <?php
+                                        }
+                                        ?>
                                     </tbody>
                                 </table>
 

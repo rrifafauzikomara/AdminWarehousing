@@ -162,6 +162,9 @@ octype html>
                                         <select class="form-control" name='tujuan' requered="requered">
                                                     <option>Paster</option>
                                                     <option>Cimahi</option>
+                                                    <option>Setia Budi</option>
+                                                    <option>Asia Afrika</option>
+                                                    <option>Cibiru</option>
                                         </select>
                                         </div>
                                         </div>
@@ -194,7 +197,7 @@ octype html>
                             if ($nama_barang == "" || $lebar == "" || $panjang == "" || $tinggi == "" || $berat == "" || $harga == "" || $tgl_masuk == "" || $tujuan == "") {
                                     ?> <script type="text/javascript">alert("Inputan tidak boleh kosong !!");</script> <?php
                             } else {
-                                $sql_tambah = "insert into tb_barang values('', '$nama_barang', '$lebar', '$panjang', '$tinggi', '$berat', '$harga', '$tgl_masuk', '$tujuan', '0', '0', 'False')" or die (mysqli_error());
+                                $sql_tambah = "insert into tb_barang values('', '$nama_barang', '$lebar', '$panjang', '$tinggi', '$berat', '$harga', '$tgl_masuk', '$tujuan', '0', '0', '0', '0', '0', '0', 'False')" or die (mysqli_error());
                                 $tmb_barang = mysqli_query($con, $sql_tambah);
                                 ?> <script type="text/javascript">alert("Tambah Barang Berhasil");</script> <?php
                             }

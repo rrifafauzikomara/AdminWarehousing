@@ -135,12 +135,63 @@
                                         </div>
                                     </div>
 
+                                    <div class="col-xs-12 col-sm-12 col-md-4">
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                <h3 class="panel-title">Tujuan</h3>
+                                            </div>
+                                            <div class="panel-body">
+                                                <ol>
+                                                    <?php
+                                                        $sql = "SELECT * FROM tb_barang" or die(mysqli_error());
+                                                        $print = mysqli_query($con, $sql);
+                                                    ?>
+                                                    <li><a href="hasilTujuan.php?tujuan=<?php echo "Setia Budi" ?>">Truk Setia Budi</a></li>
+                                                </ol>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-xs-12 col-sm-12 col-md-4">
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                <h3 class="panel-title">Tujuan</h3>
+                                            </div>
+                                            <div class="panel-body">
+                                                <ol>
+                                                    <?php
+                                                        $sql = "SELECT * FROM tb_barang" or die(mysqli_error());
+                                                        $print = mysqli_query($con, $sql);
+                                                    ?>
+                                                    <li><a href="hasilTujuan.php?tujuan=<?php echo "Asia Afrika" ?>">Truk Asia Afrika</a></li>
+                                                </ol>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-xs-12 col-sm-12 col-md-4">
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                <h3 class="panel-title">Tujuan</h3>
+                                            </div>
+                                            <div class="panel-body">
+                                                <ol>
+                                                    <?php
+                                                        $sql = "SELECT * FROM tb_barang" or die(mysqli_error());
+                                                        $print = mysqli_query($con, $sql);
+                                                    ?>
+                                                    <li><a href="hasilTujuan.php?tujuan=<?php echo "Cibiru" ?>">Truk Cibiru</a></li>
+                                                </ol>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 </div>
                             </div>
 
                         </div>
 
-                        <div class="card">
+                        <!-- <div class="card">
                             <div class="header">
                                 <h4 class="title">Detail Barang</h4>
                             </div>
@@ -177,9 +228,9 @@
                                             $tujuan = $data['tujuan'];
                                             $qty = $data['qty'];
                                             $total = $data['harga'] * $data['qty'];
-                                            $truck = 4 * 3 * 3;
-                                            $volume = (($data['lebar'] * $data['panjang'] * $data['tinggi']) / $truck) * $qty;
-                                            $sisa = 100 - $volume;
+                                            $truck = $data['truck'];
+                                            $volume = $data['volumBarang'];
+                                            $sisa = $data['sisaVTB'];
                                         ?>
 
                                         <tr>
@@ -203,7 +254,7 @@
                                 </table>
 
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>

@@ -123,6 +123,9 @@
 			                        $tujuan = @$_POST['tujuan'];
                                     $qty = @$_POST['qty'];
                                     $total = $harga * $qty;
+                                    $truck = 4 * 3 * 3;
+                                    $volume = ((@$_POST['lebar'] * @$_POST['panjang'] * @$_POST['tinggi']) / $truck) * $qty;
+                                    $sisa = 100 - $volume;
 
                         			$tambah = @$_POST['edit'];
 
@@ -130,7 +133,7 @@
 			                            if ($id_barang == "" || $nama_barang == "" || $lebar == "" || $panjang == "" || $tinggi == "" || $berat == "" || $harga == "" || $tujuan == "" || $qty == "") {
 			                                    ?> <script type="text/javascript">alert("Inputan tidak boleh kosong !!");</script> <?php
 			                            } else {
-			                                $sql_tambah = "update tb_barang set nama_barang='$nama_barang', lebar='$lebar', panjang='$panjang', tinggi='$tinggi', berat='$berat', harga='$harga', tujuan='$tujuan', qty='$qty', total='$total' where id_barang='$id_barang'" or die (mysqli_error());
+			                                $sql_tambah = "update tb_barang set nama_barang='$nama_barang', lebar='$lebar', panjang='$panjang', tinggi='$tinggi', berat='$berat', harga='$harga', tujuan='$tujuan', qty='$qty', total='$total', truck='$truck', volumBarang='$volume', sisaVTB='$sisa' where id_barang='$id_barang'" or die (mysqli_error());
 			                                $register = mysqli_query($con, $sql_tambah);
 			                                
 			                                echo "<script type=text/javascript>

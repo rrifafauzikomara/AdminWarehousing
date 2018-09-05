@@ -118,6 +118,7 @@ include "koneksi.php";
                                         <th><div align="center">Tujuan</div></th>
                                         <th><div align="center">Qty</div></th>
                                         <th><div align="center">Tot. Harga</div></th>
+                                        <th><div align="center">Sisa Volume Truck</div></th>
                                         <!-- <th><div align="center">Aksi</div></th> -->
                                     </thead>
                                     <tbody>
@@ -126,6 +127,10 @@ include "koneksi.php";
                                             $tujuan=$_GET['tujuan'];
                                             $result = "SELECT * FROM tb_barang WHERE tujuan='$tujuan' AND status='True'" or die(mysqli_error());
                                             $print = mysqli_query($con, $result);
+
+                                            $result = mysqli_query($con, "SELECT AVG(sisaVTB) AS value_sum FROM tb_barang WHERE tujuan='$tujuan' AND status='True'"); 
+                                            $row = mysqli_fetch_assoc($result); 
+                                            $sum = $row['value_sum'];
                                         
                                         while($data = mysqli_fetch_array($print)) {
                                             $id_barang=$data['id_barang'];
@@ -137,7 +142,10 @@ include "koneksi.php";
                                             $harga = $data['harga'];
                                             $tujuan = $data['tujuan'];
                                             $qty = $data['qty'];
-                                            $total = $data['harga'] * $data['qty'];
+                                            $total = $data['total'];
+                                            $truck = $data['truck'];
+                                            $volume = $data['volumBarang'];
+                                            $sisa = $data['sisaVTB'];
                                         ?>
 
                                         <tr>
@@ -152,6 +160,7 @@ include "koneksi.php";
                                             <td><div align="center"><?php echo $data['tujuan']; ?></div></td>
                                             <td><div align="center"><?php echo $data['qty']; ?></div></td>
                                             <td><div align="center">Rp <?php echo $total; ?></div></td>
+                                            <td><div align="center"><?php echo number_format((float)$sisa);?> %</div></td>
                                             <!-- <?php
                                             if($status=="True"){
                                             ?>
@@ -168,6 +177,11 @@ include "koneksi.php";
 			                            }
 			                            ?>
                                     </tbody>
+
+                                    <ul>
+                                        <p align="right">Kapasitas Truck : <?php echo number_format((float)$sum);?> %</p>
+                                    </ul>
+
                                 </table>
 
                             </div>

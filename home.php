@@ -268,8 +268,9 @@ if (@$_SESSION['admin'] || @$_SESSION['user']) {
                                             $lebar = $data['lebar'];
                                             $panjang = $data['panjang'];
                                             $tinggi = $data['tinggi'];
-                                            $volume = ($data['lebar'] * $data['panjang'] * $data['tinggi']) / $truck;
-                                            $sisa = 100 - $volume;
+                                            $qty = $data['qty'];
+                                            $volume = $data['volumBarang'];
+                                            $sisa = $data['sisaVTB'];
 
                                         ?>
 

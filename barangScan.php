@@ -100,9 +100,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-12">
-
                         <div class="card">
-                            
                             <div class="row">
                                 <div class="col-xs-12 col-sm-12 col-md-12"><br>
                                     <div class="col-xs-12 col-sm-12 col-md-4">
@@ -188,10 +186,30 @@
 
                                 </div>
                             </div>
-
                         </div>
 
-                        <!-- <div class="card">
+                        <div class="card">
+                            <div class="header">
+                                <fieldset>
+                                    <form class="form-horizontal form-label-left" method="post" action="" enctype="multipart/form-data">
+                                        <div class="item form-group">
+                                            <label class="control-label col-md-4" for="tgl_masuk">Tanggal Masuk<span class="required"></span></label>
+                                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                                <input id="tgl_masuk" class="form-control col-md-7 col-xs-12" name="tgl_masuk" type="date" value="<?php echo date("d-m-Y");?>" required="required">
+                                            </div>
+                                        </div>
+                                        <div class="ln_solid"></div>
+                                        <div class="form-group">
+                                        <div class="col-md-6 col-md-offset-5">
+                                            <input type="submit" name="cari" value="Cari" class="btn btn-primary">
+                                            <input type="reset" value="Reset" class="btn btn-primary">
+                                        </div>
+                                        </div>
+                                </fieldset>
+                            </div>
+                        </div>
+
+                        <div class="card">
                             <div class="header">
                                 <h4 class="title">Detail Barang</h4>
                             </div>
@@ -206,16 +224,23 @@
                                         <th><div align="center">Berat</div></th>
                                         <th><div align="center">Harga</div></th>
                                         <th><div align="center">Tanggal</div></th>
-                                        <th><div align="center">Tujuan</div></th>
                                         <th><div align="center">Qty</div></th>
                                         <th><div align="center">Tot. Harga</div></th>
                                         <th><div align="center">Sisa Volume Truck</div></th>
+                                        <th><div align="center">Tujuan</div></th>
                                     </thead>
                                     <tbody>
 
                                         <?php
+                                        if (isset($_POST['tgl_masuk'])) {
+                                            $tgl=$_POST['tgl_masuk'];
+                                            $result = "SELECT * FROM tb_barang WHERE tgl_masuk='$tgl' AND status='True'" or die(mysqli_error());
+                                            $print = mysqli_query($con, $result);
+                                        } else {
                                             $result = "SELECT * FROM tb_barang WHERE status='True'" or die(mysqli_error());
                                             $print = mysqli_query($con, $result);
+                                        
+                                        }
                                         
                                         while($data = mysqli_fetch_array($print)) {
                                             $id_barang=$data['id_barang'];
@@ -242,10 +267,10 @@
                                             <td><div align="center"><?php echo $data['berat']; ?> kg</div></td>
                                             <td><div align="center">Rp <?php echo $data['harga']; ?></div></td>
                                             <td><div align="center"><?php echo $data['tgl_masuk']; ?></div></td>
-                                            <td><div align="center"><?php echo $data['tujuan']; ?></div></td>
                                             <td><div align="center"><?php echo $data['qty']; ?></div></td>
                                             <td><div align="center">Rp <?php echo $total; ?></div></td>
                                             <td><div align="center"><?php echo number_format((float)$sisa);?> %</div></td>
+                                            <td><div align="center"><a href="hasilTujuan.php?tujuan=<?php echo $data['tujuan']; ?>"><?php echo $data['tujuan']; ?></a></div></td>
                                         </tr>
                                         <?php
                                         }
@@ -254,7 +279,7 @@
                                 </table>
 
                             </div>
-                        </div> -->
+                        </div>
                     </div>
                 </div>
             </div>

@@ -168,7 +168,7 @@ if (@$_SESSION['admin'] || @$_SESSION['user']) {
                                     <div class="col-xs-12 col-sm-12 col-md-4">
                                         <div class="panel panel-default">
                                             <div class="panel-heading">
-                                                <h3 class="panel-title">Jenis Barang</h3>
+                                                <h3 class="panel-title">Nama Barang</h3>
                                             </div>
                                             <div class="panel-body">
                                                 <ol>
